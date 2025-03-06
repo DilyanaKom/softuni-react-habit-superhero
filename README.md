@@ -53,34 +53,33 @@
 
 ### Frontend (React + Vite)
 
-| Technology            | Purpose                                      |
-|----------------------|---------------------------------------------|
-| **Vite**            | Fast build tool for React                   |
-| **React.js**        | Core library for the SPA                    |
-| **React Router**    | Client-side navigation                      |
-| **Redux Toolkit / Context API** | State management (choose based on complexity) |
-| **Styled Components** | Styling                      |
-
+| Technology            |
+|----------------------|
+| **Vite**            | 
+| **React.js**        | 
+| **React Router**    | 
+| **Redux Toolkit / Context API** |
+| **Styled Components** |
 ### Backend & Database (Firebase)
 
-| Technology              | Purpose                                       |
-|------------------------|-----------------------------------------------|
-| **Firebase Authentication** | User login & registration                |
-| **Cloud Firestore**    | NoSQL database for challenges, progress, discussions |
-| **Firestore Security Rules** | Role-based access control               |
+| Technology              | 
+|------------------------|
+| **Firebase Authentication** | 
+| **Cloud Firestore**    | 
+| **Firestore Security Rules** |              |
 
 ### Deployment & Hosting
 
-| Technology          | Purpose                           |
-|--------------------|----------------------------------|
-| **Firebase Hosting** | Deploying the React SPA        |
+| Technology          | 
+|--------------------|
+| **Firebase Hosting** | 
 
 ### Development & Tooling
 
-| Technology                 | Purpose                                      |
-|---------------------------|----------------------------------------------|
-| **Testing Library** | Unit testing (if tests are implemented) |
-| **VS Code + GitHub**       | Development environment & version control    |
+| Technology                 |
+|---------------------------|
+| **Testing Library** | 
+| **VS Code + GitHub**       | 
 
 ---
 
