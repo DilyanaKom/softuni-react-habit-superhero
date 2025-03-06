@@ -1,6 +1,6 @@
 # HabitSuperhero
 
-**HabitSuperhero** is a community-driven platform where users can join challenges, track their progress, and engage in discussions. The app supports both official challenges (admin-created) and community challenges (user-generated), with features such as progress tracking via check options and comment sections.
+**HabitSuperhero** is a community-driven platform where users can join healthy lifestyle challenges, track their progress, and engage in discussions. The app supports both official challenges (admin-created) and community challenges (user-generated), with features such as progress tracking via check options and comment sections.
 
 ## Features
 ### ✅ Challenges System (Official & Community Challenges)
