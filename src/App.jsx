@@ -1,4 +1,5 @@
-
+import './css/bootstrap.min.css';
+import './css/templatemo-style.css';
 function App() {
 
 
