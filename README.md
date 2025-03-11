@@ -10,6 +10,8 @@ HabitSuperhero is a platform where users can create, join, and complete healthy 
 - Pre-created official challenges visible to all users
 - User-generated community challenges with full CRUD functionality
 - Users can join and mark challenges as completed
+- Challenges can only be deleted if no users have joined them
+- Once users have joined a challenge, creators can only edit non-critical fields (description)
 
 **Simple Progress Tracking**
 - Users can track challenges by marking them as "joined" or "completed"
@@ -44,8 +46,9 @@ HabitSuperhero is a platform where users can create, join, and complete healthy 
   - Can view their joined and created challenges
   - Can comment on any challenge
 - **Actions:**
-  - Can create community challenges with full CRUD permissions
-  - Can update and delete only their own challenges
+  - Can create community challenges
+  - Can update only their own challenges (with restrictions once others join)
+  - Can delete only their own challenges (only if no one has joined)
   - Can update and delete only their own comments
 
 ---
@@ -99,8 +102,24 @@ HabitSuperhero is a platform where users can create, join, and complete healthy 
 
 ---
 
+## Data Integrity Rules
+
+**Challenge Modification Rules:**
+- Challenges with no participants: Full CRUD operations allowed
+- Challenges with participants:
+  - Limited editing (only description field can be modified)
+  - Deletion is prevented
+  - Clear feedback is provided to creators about these restrictions
+
+**Comment Management:**
+- Full CRUD operations for users on their own comments
+- Comments remain even if a user leaves a challenge
+
+---
+
 ## Future Improvements
 - Badges for completed challenges
-- Checking challenges milestones
 - Challenge categories and filtering
+- Social sharing functionality
 - Personal statistics dashboard
+- Moderation for community challenges
