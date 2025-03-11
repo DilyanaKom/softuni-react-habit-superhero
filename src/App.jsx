@@ -56,7 +56,7 @@ function App() {
         <div className="row tm-mb-90 tm-gallery">
         	<div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure className="effect-ming tm-video-item">
-                    <img src="img/img-03.jpg" alt="Image" className="img-fluid"/>
+                    <img src="" alt="Image" className="img-fluid"/>
                     <figcaption className="d-flex align-items-center justify-content-center">
                         <h2>Clocks</h2>
                         <a href="photo-detail.html">View more</a>
@@ -69,7 +69,7 @@ function App() {
             </div>
             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure className="effect-ming tm-video-item">
-                    <img src="img/img-04.jpg" alt="Image" className="img-fluid"/>
+                    <img src="/img-04.jpg" alt="Image" className="img-fluid"/>
                     <figcaption className="d-flex align-items-center justify-content-center">
                         <h2>Plants</h2>
                         <a href="photo-detail.html">View more</a>
@@ -82,7 +82,7 @@ function App() {
             </div>
             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure className="effect-ming tm-video-item">
-                    <img src="img/img-05.jpg" alt="Image" className="img-fluid"/>
+                    <img src="/img-05.jpg" alt="Image" className="img-fluid"/>
                     <figcaption className="d-flex align-items-center justify-content-center">
                         <h2>Morning</h2>
                         <a href="photo-detail.html">View more</a>
@@ -95,7 +95,7 @@ function App() {
             </div>
             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure className="effect-ming tm-video-item">
-                    <img src="img/img-06.jpg" alt="Image" className="img-fluid"/>
+                    <img src="/img-06.jpg" alt="Image" className="img-fluid"/>
                     <figcaption className="d-flex align-items-center justify-content-center">
                         <h2>Pinky</h2>
                         <a href="photo-detail.html">View more</a>
@@ -109,7 +109,7 @@ function App() {
             
             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure className="effect-ming tm-video-item">
-                    <img src="img/img-01.jpg" alt="Image" className="img-fluid"/>
+                    <img src="/img-01.jpg" alt="Image" className="img-fluid"/>
                     <figcaption className="d-flex align-items-center justify-content-center">
                         <h2>Hangers</h2>
                         <a href="photo-detail.html">View more</a>
@@ -122,7 +122,7 @@ function App() {
             </div>
             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure className="effect-ming tm-video-item">
-                    <img src="img/img-02.jpg" alt="Image" className="img-fluid"/>
+                    <img src="/img-02.jpg" alt="Image" className="img-fluid"/>
                     <figcaption className="d-flex align-items-center justify-content-center">
                         <h2>Perfumes</h2>
                         <a href="photo-detail.html">View more</a>
@@ -135,7 +135,7 @@ function App() {
             </div>
             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure className="effect-ming tm-video-item">
-                    <img src="img/img-07.jpg" alt="Image" className="img-fluid"/>
+                    <img src="/img-07.jpg" alt="Image" className="img-fluid"/>
                     <figcaption className="d-flex align-items-center justify-content-center">
                         <h2>Bus</h2>
                         <a href="photo-detail.html">View more</a>
@@ -148,7 +148,7 @@ function App() {
             </div>
             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure className="effect-ming tm-video-item">
-                    <img src="img/img-08.jpg" alt="Image" className="img-fluid"/>
+                    <img src="/img-08.jpg" alt="Image" className="img-fluid"/>
                     <figcaption className="d-flex align-items-center justify-content-center">
                         <h2>New York</h2>
                         <a href="photo-detail.html">View more</a>
@@ -161,7 +161,7 @@ function App() {
             </div>
             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure className="effect-ming tm-video-item">
-                    <img src="img/img-09.jpg" alt="Image" className="img-fluid"/>
+                    <img src="/img-09.jpg" alt="Image" className="img-fluid"/>
                     <figcaption className="d-flex align-items-center justify-content-center">
                         <h2>Abstract</h2>
                         <a href="photo-detail.html">View more</a>
@@ -174,7 +174,7 @@ function App() {
             </div>
             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure className="effect-ming tm-video-item">
-                    <img src="img/img-10.jpg" alt="Image" className="img-fluid"/>
+                    <img src="/img-10.jpg" alt="Image" className="img-fluid"/>
                     <figcaption className="d-flex align-items-center justify-content-center">
                         <h2>Flowers</h2>
                         <a href="photo-detail.html">View more</a>
@@ -187,7 +187,7 @@ function App() {
             </div>
             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure className="effect-ming tm-video-item">
-                    <img src="img/img-11.jpg" alt="Image" className="img-fluid"/>
+                    <img src="/img-11.jpg" alt="Image" className="img-fluid"/>
                     <figcaption className="d-flex align-items-center justify-content-center">
                         <h2>Rosy</h2>
                         <a href="photo-detail.html">View more</a>
@@ -200,7 +200,7 @@ function App() {
             </div>
             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure className="effect-ming tm-video-item">
-                    <img src="img/img-12.jpg" alt="Image" className="img-fluid"/>
+                    <img src="/img-12.jpg" alt="Image" className="img-fluid"/>
                     <figcaption className="d-flex align-items-center justify-content-center">
                         <h2>Rocki</h2>
                         <a href="photo-detail.html">View more</a>
@@ -213,7 +213,7 @@ function App() {
             </div>
             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure className="effect-ming tm-video-item">
-                    <img src="img/img-13.jpg" alt="Image" className="img-fluid"/>
+                    <img src="/img-13.jpg" alt="Image" className="img-fluid"/>
                     <figcaption className="d-flex align-items-center justify-content-center">
                         <h2>Purple</h2>
                         <a href="photo-detail.html">View more</a>
@@ -226,7 +226,7 @@ function App() {
             </div>
             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure className="effect-ming tm-video-item">
-                    <img src="img/img-14.jpg" alt="Image" className="img-fluid"/>
+                    <img src="/img-14.jpg" alt="Image" className="img-fluid"/>
                     <figcaption className="d-flex align-items-center justify-content-center">
                         <h2>Sea</h2>
                         <a href="photo-detail.html">View more</a>
@@ -239,7 +239,7 @@ function App() {
             </div>
             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure className="effect-ming tm-video-item">
-                    <img src="img/img-15.jpg" alt="Image" className="img-fluid"/>
+                    <img src="/img-15.jpg" alt="Image" className="img-fluid"/>
                     <figcaption className="d-flex align-items-center justify-content-center">
                         <h2>Turtle</h2>
                         <a href="photo-detail.html">View more</a>
@@ -252,7 +252,7 @@ function App() {
             </div>
             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5">
                 <figure className="effect-ming tm-video-item">
-                    <img src="img/img-16.jpg" alt="Image" className="img-fluid"/>
+                    <img src="/img-16.jpg" alt="Image" className="img-fluid"/>
                     <figcaption className="d-flex align-items-center justify-content-center">
                         <h2>Peace</h2>
                         <a href="photo-detail.html">View more</a>
