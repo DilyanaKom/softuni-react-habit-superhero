@@ -1,8 +1,8 @@
 import './css/bootstrap.min.css';
 import './css/templatemo-style.css';
 
-import { NavigationProvider } from './components/NavigationContext';
-import Navigation from './components/Navigation';
+import { NavigationProvider } from './components/navigation/NavigationContext';
+import Navigation from './components/navigation/Navigation';
 
 
 function App() {

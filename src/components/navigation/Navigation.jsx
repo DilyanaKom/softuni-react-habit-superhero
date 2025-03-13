@@ -17,7 +17,7 @@ export default function Navigation() {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav ml-auto mb-2 mb-lg-0">
-                        {navLinks.map((link) => (<NavigationLink key={link.id} name={link.name} path={link.path} />))}
+                        {navLinks.map((link) => (<NavigationLink key={link.id} name={link.name} path={link.path} className={link.className}/>))}
                         {/* <li className="nav-item">
                                 <a className="nav-link nav-link-2" href="videos.html">Videos</a>
                             </li>
