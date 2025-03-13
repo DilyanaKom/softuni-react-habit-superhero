@@ -1,6 +1,10 @@
+import { useNavigation } from "./NavigationContext";
 import NavigationLink from "./NavigationLink";
 
 export default function Navigation() {
+
+    const navLinks = useNavigation();
+
     return (
         <nav className="navbar navbar-expand-lg">
             <div className="container-fluid">
@@ -13,8 +17,8 @@ export default function Navigation() {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav ml-auto mb-2 mb-lg-0">
-                        <NavigationLink />
-                            <li className="nav-item">
+                        {navLinks.map((link) => (<NavigationLink key={link.id} name={link.name} path={link.path} />))}
+                        {/* <li className="nav-item">
                                 <a className="nav-link nav-link-2" href="videos.html">Videos</a>
                             </li>
                             <li className="nav-item">
@@ -22,7 +26,7 @@ export default function Navigation() {
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link nav-link-4" href="contact.html">Contact</a>
-                            </li>
+                            </li> */}
                     </ul>
                 </div>
             </div>

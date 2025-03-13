@@ -1,6 +1,7 @@
 import './css/bootstrap.min.css';
 import './css/templatemo-style.css';
 
+import { NavigationProvider } from './components/NavigationContext';
 import Navigation from './components/Navigation';
 
 
@@ -9,6 +10,7 @@ function App() {
 
   return (
     <>
+    <NavigationProvider>
     <Navigation />
 
     <div className="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="/hero.jpg">
@@ -294,6 +296,7 @@ function App() {
             </div>
         </div>
     </footer> */}
+    </NavigationProvider>
     </>
   )
 }
