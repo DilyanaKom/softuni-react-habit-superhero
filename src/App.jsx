@@ -3,6 +3,7 @@ import './css/templatemo-style.css';
 
 import { NavigationProvider } from './components/navigation/NavigationContext';
 import Navigation from './components/navigation/Navigation';
+import { BrowserRouter } from 'react-router';
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
 
   return (
     <>
+    <BrowserRouter>
     <NavigationProvider>
     <Navigation />
 
@@ -297,6 +299,7 @@ function App() {
         </div>
     </footer> */}
     </NavigationProvider>
+    </BrowserRouter>
     </>
   )
 }
