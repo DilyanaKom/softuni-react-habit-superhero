@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import styles from './Hero.module.css';
+import Search from "./Search";
 
 export default function Hero() {
 
@@ -75,13 +76,16 @@ export default function Hero() {
 
     return (
         <div className={styles.heroCarousel}>
-        <div className={styles.heroSlide}>
-          <img 
-            src={currentImage.src} 
-            alt={currentImage.alt || 'Hero image'} 
-            className={styles.heroImage}
-          />
-        </div>
+            <div className={styles.heroSlide}>
+                <img
+                    src={currentImage.src}
+                    alt={currentImage.alt || 'Hero image'}
+                    className={styles.heroImage}
+                />
+                <div className={styles.searchContainer}>
+                    <Search />
+                </div>
+            </div>
         </div>
     )
 }
