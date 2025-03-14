@@ -4,12 +4,12 @@ const NavigationContext = createContext([]);
 
 export const NavigationProvider = ( {children}) => {
     const navLinks = [
-        {id: 'home', name: 'Home', path:'/', className: '1' },
-        {id: 'catalog', name: 'Catalog', path:'/catalog', className: '2' },
-        {id: 'register', name: 'Register', path:'/register', className: '3' },
-        {id: 'profile', name: 'Profile', path:'/profile', className: '4' },
-        {id: 'login', name: 'Login', path:'/login', className: '5' },
-        {id: 'logout', name: 'Logout', path:'/logout', className: '6' },
+        {id: 'home', name: 'Home', path:'/', className: 'navLink1' },
+        {id: 'catalog', name: 'Catalog', path:'/catalog', className: 'navLink2' },
+        {id: 'register', name: 'Register', path:'/register', className: 'navLink3' },
+        {id: 'profile', name: 'Profile', path:'/profile', className: 'navLink4' },
+        {id: 'login', name: 'Login', path:'/login', className: 'navLink5' },
+        {id: 'logout', name: 'Logout', path:'/logout', className: 'navLink6' },
         
         
     ];
