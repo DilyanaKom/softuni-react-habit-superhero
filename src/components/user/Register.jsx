@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import styles from './Register.module.css'
 
 export default function Register(){
@@ -23,7 +24,7 @@ export default function Register(){
         </div>
     </form>
     <div className={`${styles.mt4} ${styles.textCenter}`}>
-        <p>Already registered? <a href="/login" className={styles.loginLink}>Login</a></p>
+        <p>Already registered? <Link to="/login" className={styles.loginLink}>Login</Link></p>
     </div>                
   </div>
 </div>
