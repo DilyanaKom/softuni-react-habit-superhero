@@ -1,23 +1,60 @@
 import { useState, useEffect } from "react";
 
-export default function Hero(){
+import styles from './Hero.module.css';
+
+export default function Hero() {
 
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const carouselImages = [
-        {src: '/hero.jpg',
-         alt: 'Bird swimming'
-        }
+        {
+            src: 'heroImages/hero.jpg',
+            alt: 'Friends gathering'
+        },
+        {
+            src: 'heroImages/hero2.jpg',
+            alt: 'Yoga'
+        },
+        {
+            src: 'heroImages/hero3.jpg',
+            alt: 'Gardening'
+        },
+        {
+            src: 'heroImages/hero4.jpg',
+            alt: 'Jogging'
+        },
+        {
+            src: 'heroImages/hero5.jpg',
+            alt: 'Healthy meal'
+        },
+        {
+            src: 'heroImages/hero6.jpg',
+            alt: 'Fitness'
+        },
+        {
+            src: 'heroImages/hero7.jpg',
+            alt: 'Trekking'
+        },
+        {
+            src: 'heroImages/hero8.jpg',
+            alt: 'Skincare'
+        },
+        {
+            src: 'heroImages/hero9.jpg',
+            alt: 'Family time in the snow'
+        },
+
+
     ];
     useEffect(() => {
         setInterval(() => {
             setCurrentIndex((index) => {
-                if(index === carouselImages.length - 1 ){
+                if (index === carouselImages.length - 1) {
                     return 0;
                 }
                 return index + 1;
             })
-        }, 5000)
+        }, 7000)
     }, []);
 
     const currentImage = carouselImages[currentIndex];
@@ -25,8 +62,14 @@ export default function Hero(){
 
 
     return (
-        <div className="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="/hero.jpg">
-            
-      </div>
+        <div className={styles.heroCarousel}>
+        <div className={styles.heroSlide}>
+          <img 
+            src={currentImage.src} 
+            alt={currentImage.alt || 'Hero image'} 
+            className={styles.heroImage}
+          />
+        </div>
+        </div>
     )
 }
