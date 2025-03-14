@@ -8,39 +8,51 @@ export default function Hero() {
 
     const carouselImages = [
         {
-            src: 'heroImages/hero.jpg',
-            alt: 'Friends gathering'
-        },
-        {
-            src: 'heroImages/hero2.jpg',
+            src: 'heroImages/hero1.jpg',
             alt: 'Yoga'
         },
         {
+            src: 'heroImages/hero2.jpg',
+            alt: 'Mindfulness'
+        },
+        {
             src: 'heroImages/hero3.jpg',
-            alt: 'Gardening'
+            alt: 'Reading'
         },
         {
             src: 'heroImages/hero4.jpg',
-            alt: 'Jogging'
+            alt: 'Friends gathering'
         },
         {
             src: 'heroImages/hero5.jpg',
-            alt: 'Healthy meal'
+            alt: 'Gardening'
         },
         {
             src: 'heroImages/hero6.jpg',
-            alt: 'Fitness'
+            alt: 'Drinking water'
         },
         {
             src: 'heroImages/hero7.jpg',
-            alt: 'Trekking'
+            alt: 'Jogging'
         },
         {
             src: 'heroImages/hero8.jpg',
-            alt: 'Skincare'
+            alt: 'Healthy meal'
         },
         {
             src: 'heroImages/hero9.jpg',
+            alt: 'Fitness'
+        },
+        {
+            src: 'heroImages/hero10.jpg',
+            alt: 'Trekking'
+        },
+        {
+            src: 'heroImages/hero11.jpg',
+            alt: 'Skincare'
+        },
+        {
+            src: 'heroImages/hero12.jpg',
             alt: 'Family time in the snow'
         },
 
