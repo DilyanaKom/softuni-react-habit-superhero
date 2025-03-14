@@ -5,8 +5,10 @@ import { BrowserRouter, Routes, Route } from 'react-router';
 
 import Navigation from './components/navigation/Navigation';
 import Register from './components/user/Register';
+import Login from './components/user/Login';
 
 import { NavigationProvider } from './components/navigation/NavigationContext';
+
 
 
 function App() {
@@ -19,6 +21,7 @@ function App() {
           <Navigation />
           <Routes>
             <Route path="/register" element={<Register/>}/>
+            <Route path="/login" element={<Login/>}/>
 
           </Routes>
 

@@ -1,4 +1,3 @@
-/* Registration Form Styles for CSS Modules */
 
 .registrationContainer {
     display: flex;
@@ -88,9 +87,11 @@
     text-decoration: underline;
   }
   
-  /* Responsive adjustments */
   @media (max-width: 768px) {
     .registrationCard {
       padding: 20px;
     }
   }
+
+
+
