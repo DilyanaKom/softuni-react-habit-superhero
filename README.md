@@ -10,8 +10,7 @@ HabitSuperhero is a platform where users can create, join, and complete healthy 
 - Pre-created official challenges visible to all users
 - User-generated community challenges with full CRUD functionality
 - Users can join and mark challenges as completed
-- Challenges can only be deleted if no users have joined them
-- Once users have joined a challenge, creators can only edit non-critical fields (description)
+- Challenges can only be deleted and edited if no users have joined them
 
 **Simple Progress Tracking**
 - Users can track challenges by marking them as "joined" or "completed"
@@ -22,7 +21,7 @@ HabitSuperhero is a platform where users can create, join, and complete healthy 
 - Comment creators can modify or delete their own comments
 
 **User Authentication & Access Control**
-- User sign-up and login via Firebase Authentication
+- User sign-up and login via SoftUni practice server
 - Different access levels for guests vs. logged-in users
 - Users can only modify their own challenges and comments
 
@@ -63,15 +62,15 @@ HabitSuperhero is a platform where users can create, join, and complete healthy 
   - Context API
   - CSS (external files)
 
-### Backend & Database (Firebase)
+### Backend 
 - **Technology:**
-  - Firebase Authentication
-  - Cloud Firestore
-  - Firestore Security Rules
+  - SoftUni practice server
+
+
 
 ### Deployment & Hosting
 - **Technology:**
-  - Firebase Hosting
+  - TBC
 
 ### Development & Tooling
 - **Technology:**
