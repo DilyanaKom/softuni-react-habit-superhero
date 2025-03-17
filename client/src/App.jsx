@@ -22,8 +22,8 @@ function App() {
    
         <NavigationProvider>
           <Navigation />
-          <Hero />
           <Routes>
+            <Route index element={<Hero />} />
             <Route path="/register" element={<Register/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/challenges/create" element={<CreateChallenge/>}/>
