@@ -51,3 +51,8 @@
     background-color: #B5EAD7 ;
     opacity: 1;
   }
+
+  .navLink7:hover::after {
+    background-color: #FFB3AB  ;
+    opacity: 1;
+  }
