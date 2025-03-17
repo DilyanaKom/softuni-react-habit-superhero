@@ -9,51 +9,51 @@ export default function Hero() {
 
     const carouselImages = [
         {
-            src: '/public/heroImages/hero1.jpg',
+            src: '/heroImages/hero1.jpg',
             alt: 'Yoga'
         },
         {
-            src: '/public/heroImages/hero2.jpg',
+            src: '/heroImages/hero2.jpg',
             alt: 'Mindfulness'
         },
         {
-            src: '/public/heroImages/hero3.jpg',
+            src: '/heroImages/hero3.jpg',
             alt: 'Reading'
         },
         {
-            src: '/public/heroImages/hero4.jpg',
+            src: '/heroImages/hero4.jpg',
             alt: 'Friends gathering'
         },
         {
-            src: '/public/heroImages/hero5.jpg',
+            src: '/heroImages/hero5.jpg',
             alt: 'Gardening'
         },
         {
-            src: '/public/heroImages/hero6.jpg',
+            src: '/heroImages/hero6.jpg',
             alt: 'Drinking water'
         },
         {
-            src: '/public/heroImages/hero7.jpg',
+            src: '/heroImages/hero7.jpg',
             alt: 'Jogging'
         },
         {
-            src: '/public/heroImages/hero8.jpg',
+            src: '/heroImages/hero8.jpg',
             alt: 'Healthy meal'
         },
         {
-            src: '/public/heroImages/hero9.jpg',
+            src: '/heroImages/hero9.jpg',
             alt: 'Fitness'
         },
         {
-            src: '/public/heroImages/hero10.jpg',
+            src: '/heroImages/hero10.jpg',
             alt: 'Trekking'
         },
         {
-            src: '/public/heroImages/hero11.jpg',
+            src: '/heroImages/hero11.jpg',
             alt: 'Skincare'
         },
         {
-            src: '/public/heroImages/hero12.jpg',
+            src: '/heroImages/hero12.jpg',
             alt: 'Family time in the snow'
         },
 

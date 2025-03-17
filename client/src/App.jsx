@@ -1,7 +1,7 @@
 import './css/bootstrap.min.css';
 import './css/templatemo-style.css';
 
-import { BrowserRouter, Routes, Route } from 'react-router';
+import { Routes, Route } from 'react-router';
 
 import Navigation from './components/navigation/Navigation';
 import Register from './components/user/Register';
@@ -10,6 +10,7 @@ import Hero from './components/Hero';
 
 import { NavigationProvider } from './components/navigation/NavigationContext';
 import CreateChallenge from './components/challenges/CreateChallenge';
+import Catalog from './components/challenges/Catalog';
 
 
 
@@ -27,6 +28,8 @@ function App() {
             <Route path="/register" element={<Register/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/challenges/create" element={<CreateChallenge/>}/>
+            <Route path="/challenges" element={<Catalog/>}/>
+
           </Routes>
         </NavigationProvider>
      
