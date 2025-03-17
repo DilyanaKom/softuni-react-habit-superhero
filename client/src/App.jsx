@@ -9,6 +9,7 @@ import Login from './components/user/Login';
 import Hero from './components/Hero';
 
 import { NavigationProvider } from './components/navigation/NavigationContext';
+import CreateChallenge from './components/challenges/CreateChallenge';
 
 
 
@@ -25,6 +26,7 @@ function App() {
           <Routes>
             <Route path="/register" element={<Register/>}/>
             <Route path="/login" element={<Login/>}/>
+            <Route path="/challenges/create" element={<CreateChallenge/>}/>
           </Routes>
         </NavigationProvider>
      

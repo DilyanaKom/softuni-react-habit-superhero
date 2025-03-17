@@ -1,4 +1,4 @@
-import styles from './Register.module.css'
+import styles from '../Forms.module.css'
 import { Link } from 'react-router'
 
 export default function Login(){
