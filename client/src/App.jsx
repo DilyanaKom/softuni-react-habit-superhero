@@ -18,19 +18,16 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
+   
         <NavigationProvider>
           <Navigation />
           <Hero />
           <Routes>
             <Route path="/register" element={<Register/>}/>
             <Route path="/login" element={<Login/>}/>
-
           </Routes>
-
-
         </NavigationProvider>
-      </BrowserRouter>
+     
     </>
   )
 }
