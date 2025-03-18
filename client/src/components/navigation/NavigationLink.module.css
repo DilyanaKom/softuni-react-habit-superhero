@@ -1,58 +1,91 @@
+.navLink {
+  text-decoration: none;
+  position: relative;
+  color: #3399CC;
+  transition: color 0.3s ease-in-out;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 4px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
 
 
-   .navLink {
-    text-decoration: none;
-    position: relative;
-    color: #3399CC;
-    transition: color 0.3s ease-in-out;
-  }
-  
-  .navLink::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    width: 100%;
-    height: 4px;
-    opacity: 0; 
-    transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out;
-  }
-  
-  .navLink:hover::after {
-    opacity: 1;
-  }
-  
-  .navLink1:hover::after {
-    background-color: #FF99CC ;
-    opacity: 1;
-  }
-  
-  .navLink2:hover::after {
-    background-color: #78FFD6 ;
-    opacity: 1;
-  }
-  
-  .navLink3:hover::after {
-    background-color: #FFB347;
-    opacity: 1;
-  }
-  
-  .navLink4:hover::after {
-    background-color: #DDAAFF ;
-    opacity: 1;
-  }
-  
-  .navLink5:hover::after {
-    background-color: #FFF06A;
-    opacity: 1;
-  }
-  
-  .navLink6:hover::after {
-    background-color: #B5EAD7 ;
-    opacity: 1;
-  }
 
-  .navLink7:hover::after {
-    background-color: #FFB3AB  ;
-    opacity: 1;
-  }
+.navLink1:hover::after {
+  background-color: #FF99CC;
+  opacity: 1;
+
+}
+
+.navLink1.active::after {
+  background-color: #FF99CC;
+  opacity: 1;
+}
+
+.navLink2:hover::after {
+  background-color: #78FFD6;
+  opacity: 1;
+}
+
+.navLink2.active::after {
+  background-color: #78FFD6;
+  opacity: 1;
+}
+
+.navLink3:hover::after {
+  background-color: #FFB347;
+  opacity: 1;
+}
+
+.navLink3.active::after {
+  background-color: #FFB347;
+  opacity: 1;
+}
+
+
+.navLink4:hover::after {
+  background-color: #DDAAFF;
+  opacity: 1;
+}
+
+.navLink4.active::after {
+  background-color: #DDAAFF;
+  opacity: 1;
+}
+
+.navLink5:hover::after {
+  background-color: #FFF06A;
+  opacity: 1;
+}
+
+.navLink5.active::after {
+  background-color: #FFF06A;
+  opacity: 1;
+}
+
+.navLink6:hover::after {
+  background-color: #B5EAD7;
+  opacity: 1;
+}
+
+.navLink6.active::after {
+  background-color: #B5EAD7;
+  opacity: 1;
+}
+
+.navLink7:hover::after {
+  background-color: #FFB3AB;
+  opacity: 1;
+}
+
+.navLink7.active::after {
+  background-color: #FFB3AB;
+  opacity: 1;
+}
