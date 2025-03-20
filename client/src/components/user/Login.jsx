@@ -1,17 +1,23 @@
-import { useActionState } from 'react'
+import { useActionState, useContext } from 'react'
 import { Link, useNavigate } from 'react-router'
 
 import styles from '../Forms.module.css'
 
 import { useLogin } from '../../api/authApi'
+import { UserContext } from './UserContext';
 
 export default function Login(){
+    //TODO error handling
+    //TODO add user to context
+    //TODO save user session
     const { login } = useLogin();
+    const { userLoginHandler } = useContext(UserContext)
     const navigate = useNavigate();
     const loginHandler = async (state, formData) => {
         const { email, password} = Object.fromEntries(formData);
         
         const authData = await login(email, password);
+        userLoginHandler(authData);
 
         navigate('/')
 
