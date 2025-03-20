@@ -9,7 +9,7 @@ import Login from './components/user/Login';
 import Hero from './components/Hero';
 
 import { NavigationProvider } from './components/navigation/NavigationContext';
-import CreateChallenge from './components/challenges/CreateChallenge';
+import CreateChallengeForm from './components/challenges/CreateChallengeForm';
 import Catalog from './components/challenges/Catalog';
 
 
@@ -27,7 +27,7 @@ function App() {
             <Route index element={<Hero />} />
             <Route path="/register" element={<Register/>}/>
             <Route path="/login" element={<Login/>}/>
-            <Route path="/challenges/create" element={<CreateChallenge/>}/>
+            <Route path="/challenges/create" element={<CreateChallengeForm/>}/>
             <Route path="/challenges" element={<Catalog/>}/>
 
           </Routes>
