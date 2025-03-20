@@ -8,7 +8,6 @@ import { UserContext } from './UserContext';
 
 export default function Login(){
     //TODO error handling
-    //TODO add user to context
     //TODO save user session
     const { login } = useLogin();
     const { userLoginHandler } = useContext(UserContext)

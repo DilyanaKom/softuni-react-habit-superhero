@@ -34,7 +34,7 @@ function App() {
             <Route index element={<Hero />} />
             <Route path="/register" element={<Register/>}/>
             <Route path="/login" element={<Login/>}/>
-            <Route path="/challenges/create" element={<CreateChallengeForm/>}/>
+            <Route path="/create" element={<CreateChallengeForm/>}/>
             <Route path="/challenges" element={<Catalog/>}/>
 
           </Routes>
