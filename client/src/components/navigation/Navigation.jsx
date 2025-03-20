@@ -1,9 +1,10 @@
-import { useNavigation } from "./NavigationContext";
+import { useContext } from "react";
+import { NavigationContext } from "./NavigationContext";
 import NavigationLink from "./NavigationLink";
 
 export default function Navigation() {
 
-    const navLinks = useNavigation();
+    const navLinks = useContext(NavigationContext);
 
     return (
         <nav className="navbar navbar-expand-lg">

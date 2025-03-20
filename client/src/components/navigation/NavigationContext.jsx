@@ -1,6 +1,7 @@
-import { useContext, createContext } from "react";
 
-const NavigationContext = createContext([]);
+import { createContext } from "react";
+
+export const NavigationContext = createContext([]);
 
 export const NavigationProvider = ( {children}) => {
     const navLinks = [
@@ -19,8 +20,4 @@ export const NavigationProvider = ( {children}) => {
             {children}
         </NavigationContext.Provider>
     )
-};
-
-export const useNavigation = () => { 
-    return useContext(NavigationContext);
 };
