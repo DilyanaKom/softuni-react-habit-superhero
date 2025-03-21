@@ -89,3 +89,18 @@
   background-color: #FFB3AB;
   opacity: 1;
 }
+
+.greeting {
+  margin-right: 50px;
+  margin-top: 10px;
+  text-decoration: none;
+  position: relative;
+  /* color: #009999; */
+  font-weight: 500;
+  font-size: 1.2rem;
+
+  background: linear-gradient(90deg,#B5EAD7, #3399CC);
+  background-clip:text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

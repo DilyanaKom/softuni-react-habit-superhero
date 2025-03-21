@@ -7,6 +7,9 @@ import { useRegister } from '../../api/authApi';
 import { UserContext } from './UserContext';
 
 export default function Register(){
+    //TODO error handling
+    //TODO disable button
+    //TODO check repeat pasword
     const {register} = useRegister();
     const {userLoginHandler} = useContext(UserContext);
     const navigate = useNavigate();
