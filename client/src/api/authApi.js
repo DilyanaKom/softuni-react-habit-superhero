@@ -12,3 +12,13 @@ export const useLogin = () => {
     }
 };
 
+export const useRegister = () => {
+    const register = async (username, email, password) => {
+        return post(`${url}/register`, {username, email, password})
+    }
+
+    return {
+        register
+    }
+}
+
