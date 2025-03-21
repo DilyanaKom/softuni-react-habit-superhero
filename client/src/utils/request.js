@@ -15,9 +15,17 @@ async function request(method, url, data, options = {}){
         }
     }
 
-
-    const response = await fetch(url, options);
-    const result = await response.json();
+    try {
+        const response = await fetch(url, options);
+        const result = await response.json();
+        if(!response.ok){
+            throw new Error(result.message);        
+        }
+    } catch (error) {
+        throw error;
+    }
+    
+    
     return result;
 
 };
