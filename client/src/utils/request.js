@@ -1,4 +1,14 @@
 async function request(method, url, data, options = {}){
+    const user = localStorage.getItem('auth');
+
+    if(user){
+        const token = JSON.parse(user).accessToken;
+        options.headers = {
+            ...options.headers,
+            'X-Autorization': token,
+
+        }
+    }
 
     if(method !== "GET"){
         options.method = method;
@@ -32,3 +42,4 @@ async function request(method, url, data, options = {}){
 };
 
 export const post = (url, data, options = {}) => request("POST", url, data, options);
+export const get = (url) => request("GET", url, null, options)
