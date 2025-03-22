@@ -13,6 +13,7 @@ import Catalog from './components/challenges/Catalog';
 import { UserContext } from './components/user/UserContext';
 import { NavigationProvider } from './components/navigation/NavigationContext';
 import useLocalStorage from './hooks/useLocalStorage';
+import Logout from './components/user/Logout';
 
 
 
@@ -37,6 +38,7 @@ function App() {
             <Route path="/login" element={<Login/>}/>
             <Route path="/create" element={<CreateChallengeForm/>}/>
             <Route path="/challenges" element={<Catalog/>}/>
+            <Route path="/logout" element={<Logout/>}/>
 
           </Routes>
         </NavigationProvider>
