@@ -21,12 +21,13 @@ async function request(method, url, data, options = {}){
         if(!response.ok){
             throw new Error(result.message);        
         }
+        return result;
     } catch (error) {
         throw error;
     }
     
     
-    return result;
+   
 
 };
 
