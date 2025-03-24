@@ -1649,8 +1649,61 @@
     			_createdOn: 1616237272948,
     			_updatedOn: 1616237293676
     		}
-    	}
-    };
+    	},
+        challenges: {
+            "9a17f7d7-46d1-46c0-a17a-6d6e9d2b1d62": {
+              "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+              "title": "Morning Meditation Challenge",
+              "description": "Start each day with 10 minutes of meditation to improve focus and reduce stress.",
+              "mediaLink": "https://www.youtube.com/watch?v=exw9nsACsok",
+              "duration": 7,
+              "activeParticipants": [],
+              "completedBy": [],
+              "_createdOn": 1742819415971
+            },
+            "26a52da2-2c93-4c1f-af5c-31f3fcb2d9aa": {
+              "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+              "title": "Hydration Boost Challenge",
+              "description": "A one-week plan to help you stay hydrated and healthy.",
+              "mediaLink": "https://www.example.com/hydration-tips",
+              "duration": 7,
+              "activeParticipants": [],
+              "completedBy": [],
+              "_createdOn": 1742819627468
+            },
+            "e922436d-5904-4b71-95a5-467a311a1eb5": {
+              "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+              "title": "Daily Walk Challenge",
+              "description": "Walk at least 5,000 steps every day to stay active and improve cardiovascular health.",
+              "mediaLink": "https://www.example.com/walking-benefits",
+              "duration": 30,
+              "activeParticipants": [],
+              "completedBy": [],
+              "_createdOn": 1742819660955
+            },
+            "4d984785-7688-4c69-8835-2f1cf3e34cdd": {
+              "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+              "title": "Digital Detox Challenge",
+              "description": "Reduce screen time by at least 1 hour daily to improve sleep and mental clarity.",
+              "mediaLink": "https://www.example.com/digital-detox-guide",
+              "duration": 10,
+              "activeParticipants": [],
+              "completedBy": [],
+              "_createdOn": 1742819692597
+            },
+            "dad8b7af-06ad-43fd-8e37-c7b311b2a16f": {
+              "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+              "title": "Gratitude Journal Challenge",
+              "description": "Write down three things you’re grateful for every day to cultivate a positive mindset.",
+              "mediaLink": "https://www.example.com/gratitude-journaling",
+              "duration": 21,
+              "activeParticipants": [],
+              "completedBy": [],
+              "_createdOn": 1742819713179
+            }
+          }
+        }
+    
     var rules$1 = {
     	users: {
     		".create": false,
