@@ -1,7 +1,7 @@
 async function request(method, url, data, options = {}) {
     const user = JSON.parse(localStorage.getItem('auth'));
 
-    if (user.accessToken) {
+    if (user?.accessToken) {
        
         options = {
             ...options,

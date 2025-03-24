@@ -1,6 +1,4 @@
-import { useContext } from "react";
 import { post, get } from "../utils/request";
-import { UserContext } from "../components/user/UserContext";
 
 const url = 'http://localhost:3030/users';
 

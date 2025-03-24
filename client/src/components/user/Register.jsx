@@ -19,8 +19,7 @@ export default function Register(){
         const username = registerData.username;
         const email = registerData.email;
         const password = registerData.password;
-        
-        
+        const confirmPassword = registerData.confirmPassword;
 
         const userData = await register(username, email, password);
         userLoginHandler(userData);
