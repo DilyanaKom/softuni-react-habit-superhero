@@ -1,4 +1,6 @@
-import { post } from "../utils/request";
+import { useContext } from "react";
+import { post, get } from "../utils/request";
+import { UserContext } from "../components/user/UserContext";
 
 const url = 'http://localhost:3030/users';
 
@@ -28,5 +30,16 @@ export const useRegister = () => {
     return {
         register
     }
+};
+
+export const useLogout = () => {
+    const logout = async () => {
+        return get(`${url}/logout`);
+    }
+
+    return {
+        logout
+    }
+
 }
 
