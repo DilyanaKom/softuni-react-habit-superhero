@@ -1,7 +1,9 @@
-import { useContext, useEffect} from "react"
-import styles from "../Spinner.module.css"
-import { useLogout } from "../../api/authApi"
+import { useContext, useEffect} from "react";
 import { useNavigate } from "react-router";
+
+import styles from "../Spinner.module.css";
+
+import { useLogout } from "../../api/authApi";
 import { UserContext } from "./UserContext";
 
 
