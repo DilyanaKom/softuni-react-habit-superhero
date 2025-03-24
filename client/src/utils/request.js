@@ -1,23 +1,28 @@
-async function request(method, url, data, options = {}){
-    const user = localStorage.getItem('auth');
+async function request(method, url, data, options = {}) {
+    const user = JSON.parse(localStorage.getItem('auth'));
 
-    if(user){
-        const token = JSON.parse(user).accessToken;
-        options.headers = {
-            ...options.headers,
-            'X-Autorization': token,
+    if (user.accessToken) {
+       
+        options = {
+            ...options,
+            headers: {
+                'X-Authorization': user.accessToken,
+                ...options.headers,
+            }
+
+
 
         }
     }
 
-    if(method !== "GET"){
+    if (method !== "GET") {
         options.method = method;
     }
 
-    if(data){
+    if (data) {
         options = {
             ...options,
-            headers:{
+            headers: {
                 'Content-Type': 'application/json',
                 ...options.headers,
             },
@@ -27,19 +32,23 @@ async function request(method, url, data, options = {}){
 
     try {
         const response = await fetch(url, options);
+
+        if(response.status === 204){
+            return;
+        }
         const result = await response.json();
-        if(!response.ok){
-            throw new Error(result.message);        
+        if (!response.ok) {
+            throw new Error(result.message);
         }
         return result;
     } catch (error) {
         throw error;
     }
-    
-    
-   
+
+
+
 
 };
 
 export const post = (url, data, options = {}) => request("POST", url, data, options);
-export const get = (url) => request("GET", url, null, options)
+export const get = (url, options = {}) => request("GET", url, null, options)
