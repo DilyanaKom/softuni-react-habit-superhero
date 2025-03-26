@@ -1,8 +1,11 @@
 import { useContext } from "react";
-import { useParams } from "react-router";
+import { useParams, Link } from "react-router";
+
 import styles from "./ChallengeDetails.module.css";
+
 import { UserContext } from "../user/UserContext";
 import { useChallenges } from "../../api/challengeApi";
+
 import convertDate from "../../utils/convertDate";
 
 
@@ -30,7 +33,7 @@ export default function ChallengeDetails() {
                             {authorId === _id
                                 ? (
                                     <>
-                                        <button className={styles.editButton}>Edit</button>
+                                        <Link to={`/challenges/${challengeId}/edit`} className={styles.editButton}>Edit</Link>
                                         <button className={styles.deleteButton}>Delete</button>
                                     </>
                                 )
