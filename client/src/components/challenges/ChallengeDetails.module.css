@@ -90,3 +90,9 @@
     background-color: #3399CC;
   }
   
+  .editButton:focus,
+.deleteButton:focus,
+.joinButton:focus {
+  outline: none; 
+  box-shadow: none; 
+}
