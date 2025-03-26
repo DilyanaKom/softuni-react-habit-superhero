@@ -1,22 +1,26 @@
 import { useContext } from "react";
+import { useParams } from "react-router";
 import styles from "./ChallengeDetails.module.css";
 import { UserContext } from "../user/UserContext";
+import { useChallenges } from "../../api/challengeApi";
+import convertDate from "../../utils/convertDate";
 
 
-export default function ChallengeDetails({ challenge }) {
-
+export default function ChallengeDetails() {
+    const {challengeId} = useParams();
     const { _id } = useContext(UserContext);
+    const {currentChallenge} = useChallenges(challengeId);
     
     return (
         <div className={styles.detailsContainer}>
-            <h1 className={styles.challengeTitle}>Test</h1>
+            <h1 className={styles.challengeTitle}>{currentChallenge?.title}</h1>
             <div className={styles.detailsContent}>
                 <div className={styles.mediaDisplay}>Media Placeholder</div>
                 <div className={styles.infoSection}>
-                    <p><strong>Author:</strong> Some Author</p>
-                    <p><strong>Created On:</strong> 26 March 2025</p>
-                    <p><strong>Duration:</strong> 10</p>
-                    <p className={styles.description}><strong>Description:</strong> This is test</p>
+                    <p><strong>Author:</strong> {currentChallenge?.author.username}</p>
+                    <p><strong>Created On:</strong> {convertDate(currentChallenge?._createdOn)}</p>
+                    <p><strong>Duration:</strong> {currentChallenge?.duration} days</p>
+                    <p className={styles.description}><strong>Description:</strong> {currentChallenge?.description}</p>
                     {_id && <div className={styles.buttonGroup}>
                         <button className={styles.editButton}>Edit</button>
                         <button className={styles.deleteButton}>Delete</button>

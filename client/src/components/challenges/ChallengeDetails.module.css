@@ -60,7 +60,7 @@
     padding: 10px 15px;
     border: none;
     font-weight: 500;
-    border-radius: 3px;
+    border-radius: 4px;
     cursor: pointer;
   }
   
@@ -70,7 +70,7 @@
   }
 
   .editButton:hover {
-    opacity: 0.6;
+    background-color: #3399CC;
   }
   
   .deleteButton {
@@ -78,7 +78,7 @@
     color: white;
   }
   .deleteButton:hover {
-    opacity: 0.6;
+    background-color: #3399CC;
   }
   
   .joinButton {
@@ -87,6 +87,6 @@
   }
 
   .joinButton:hover {
-    opacity: 0.6;
+    background-color: #3399CC;
   }
   
