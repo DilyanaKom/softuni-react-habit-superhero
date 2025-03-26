@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { get } from "../utils/request";
+import { get, post } from "../utils/request";
 
 const url = 'http://localhost:3030/data/challenges';
 
@@ -43,8 +43,20 @@ useEffect(() => {
 }, [challengeId]);
 
 
+const addChallenge = async (challengeData) => {
+    try {
+        const createdChallenge = await post(url, challengeData);
+        console.log(createdChallenge);
+        
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+
     return {
         challenges,   
         currentChallenge,
+        addChallenge
     }
 }
