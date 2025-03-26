@@ -1,9 +1,14 @@
+import { useEffect, useState } from "react";
+import { useChallenges } from "../../api/challengeApi"
+
 export default function Catalog() {
-  return (
+   const {challenges} = useChallenges();
+
+  console.log(challenges);
+
+return (
     <>
-
-
-      <div className="container-fluid tm-container-content tm-mt-60">
+      {/* <div className="container-fluid tm-container-content tm-mt-60">
         <div className="row mb-4">
           <h2 className="col-6 tm-text-primary">
             Latest Photos
@@ -237,7 +242,7 @@ export default function Catalog() {
             <a href="javascript:void(0);" className="btn btn-primary tm-btn-next">Next Page</a>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   )
 }
