@@ -22,7 +22,14 @@ export const useLogin = () => {
 
 export const useRegister = () => {
     const register = async (username, email, password) => {
-        return post(`${url}/register`, {username, email, password})
+        try {
+            const response = await post(`${url}/register`, {username, email, password});
+            return response;
+        } catch (error) {
+            console.log(error)
+            
+        }
+        
     }
 
     return {
