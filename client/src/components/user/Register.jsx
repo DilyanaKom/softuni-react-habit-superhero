@@ -48,7 +48,7 @@ export default function Register(){
             <input type="password" name="confirmPassword" className={styles.formControl} placeholder="Confirm Password" required />
         </div>
         <div className={styles.formGroup}>
-            <button type="submit" className={styles.btnPrimary}>Register</button>
+            <button type="submit" className={styles.btnPrimary} disabled={isPending}>Register</button>
         </div>
     </form>
     <div className={`${styles.mt4} ${styles.textCenter}`}>
