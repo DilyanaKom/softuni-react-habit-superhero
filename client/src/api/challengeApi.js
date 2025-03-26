@@ -19,6 +19,8 @@ export const useChallenges = () => {
         getAllChallenges();
     }, []);
 
+    
+
     return {
         challenges,   
     }
