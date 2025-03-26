@@ -27,6 +27,7 @@ export default function ChallengeDetails() {
                     <p><strong>Author:</strong> {currentChallenge?.author.username}</p>
                     <p><strong>Created On:</strong> {convertDate(currentChallenge?._createdOn)}</p>
                     <p><strong>Duration:</strong> {currentChallenge?.duration} days</p>
+                    <p><strong>Difficulty:</strong> {currentChallenge?.difficulty}</p>
                     <p className={styles.description}><strong>Description:</strong> {currentChallenge?.description}</p>
                     {_id && (
                         <div className={styles.buttonGroup}>
