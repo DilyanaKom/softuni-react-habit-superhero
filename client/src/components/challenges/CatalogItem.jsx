@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 import convertDate from "../../utils/convertDate"
 
 export default function CatalogItem({challenge}){
@@ -8,7 +10,7 @@ export default function CatalogItem({challenge}){
           <img src="/heroImages/hero1.jpg" alt="Image" className="img-fluid" />
           <figcaption className="d-flex align-items-center justify-content-center">
             <h2>{challenge?.title}</h2>
-            <a href="photo-detail.html">View more</a>
+            <Link to={`/challenges/${challenge?._id}/details`}>View more</Link>
           </figcaption>
         </figure>
         <div className="d-flex justify-content-between tm-text-gray">
