@@ -15,6 +15,7 @@ import { NavigationProvider } from './components/navigation/NavigationContext';
 import useLocalStorage from './hooks/useLocalStorage';
 import Logout from './components/user/Logout';
 import Profile from './components/userProfile/Profile';
+import ChallengeDetails from './components/challenges/ChallengeDetails';
 
 
 
@@ -39,6 +40,7 @@ function App() {
             <Route path="/login" element={<Login/>}/>
             <Route path="/create" element={<CreateChallengeForm/>}/>
             <Route path="/challenges" element={<Catalog/>}/>
+            <Route path="/challenges/:challengeId/details" element={<ChallengeDetails/>}/>
             <Route path="/logout" element={<Logout/>}/>
             <Route path="/profile" element={<Profile/>}/>
 
