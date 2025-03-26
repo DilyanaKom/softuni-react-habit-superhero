@@ -7,9 +7,12 @@ export const useChallenges = () => {
     const [challenges, setChallenges] = useState([]);
 
     useEffect(() => {
+        const searchParams = new URLSearchParams({
+            load: `author=_ownerId:users`,
+        })
         const getAllChallenges = async () => {
             try {
-                const data = await get(url);
+                const data = await get(`${url}?${searchParams.toString()}`);
                 setChallenges(data);
 
             } catch (error) {
@@ -19,7 +22,7 @@ export const useChallenges = () => {
         getAllChallenges();
     }, []);
 
-    
+
 
     return {
         challenges,   

@@ -13,7 +13,7 @@ export default function CatalogItem({challenge}){
         </figure>
         <div className="d-flex justify-content-between tm-text-gray">
           <span className="tm-text-gray-light">{createdOn}</span>
-          <span>By {challenge?._ownerId}</span>
+          <span>By {challenge?.author.username}</span>
         </div>
       </div>
     )
