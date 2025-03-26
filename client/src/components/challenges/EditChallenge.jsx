@@ -44,6 +44,7 @@ export default function EditChallenge() {
                 name="description"
                 className={styles.formControl}
                 placeholder="Challenge Description"
+                defaultValue={currentChallenge?.description}
                 required
               />
             </div>
@@ -55,6 +56,7 @@ export default function EditChallenge() {
                 name="mediaUrl"
                 className={styles.formControl}
                 placeholder="Image/Video URL"
+                defaultValue={currentChallenge?.mediaUrl}
               />
             </div>
             <div className={styles.formGroup}>
