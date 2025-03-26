@@ -61,7 +61,7 @@ export default function EditChallenge() {
             </div>
             <div className={styles.formGroup}>
               <label htmlFor="difficulty">Difficulty Level</label>
-              <select id="difficulty" name="difficulty" className={styles.formControl} required>
+              <select id="difficulty" name="difficulty" className={styles.formControl} value={currentChallenge?.difficulty} required>
                 <option value="">Select Difficulty Level</option>
                 <option value="easy">Easy</option>
                 <option value="medium">Medium</option>
