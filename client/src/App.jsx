@@ -16,6 +16,7 @@ import useLocalStorage from './hooks/useLocalStorage';
 import Logout from './components/user/Logout';
 import Profile from './components/userProfile/Profile';
 import ChallengeDetails from './components/challenges/ChallengeDetails';
+import EditChallenge from './components/challenges/EditChallenge';
 
 
 
@@ -41,6 +42,7 @@ function App() {
             <Route path="/create" element={<CreateChallengeForm/>}/>
             <Route path="/challenges" element={<Catalog/>}/>
             <Route path="/challenges/:challengeId/details" element={<ChallengeDetails/>}/>
+            <Route path="/challenges/:challengeId/edit" element={<EditChallenge/>}/>
             <Route path="/logout" element={<Logout/>}/>
             <Route path="/profile" element={<Profile/>}/>
 
