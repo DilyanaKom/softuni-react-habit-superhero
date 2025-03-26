@@ -51,4 +51,5 @@ async function request(method, url, data, options = {}) {
 };
 
 export const post = (url, data, options = {}) => request("POST", url, data, options);
-export const get = (url, options = {}) => request("GET", url, null, options)
+export const get = (url, options = {}) => request("GET", url, null, options);
+export const patch = (url, data, options = {}) => request("PATCH", url, data, options)

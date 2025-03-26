@@ -5,6 +5,12 @@ import { useChallenges } from '../../api/challengeApi';
 export default function EditChallenge() {
     const {challengeId} = useParams();
     const {currentChallenge} = useChallenges(challengeId);
+
+    const submitAction = async (formData) => {
+      const updatedChallengeData = Object.fromEntries(formData);
+      
+      console.log('submit clicked')
+    }
     
 
 
@@ -12,7 +18,7 @@ export default function EditChallenge() {
       <div className={styles.registrationContainer}>
         <div className={styles.registrationCard}>
           <h2 className={`${styles.textPrimary} ${styles.mb5}`}>Edit Challenge</h2>
-          <form id="create-challenge-form" className={styles.contactForm}>
+          <form id="create-challenge-form" className={styles.contactForm} action={submitAction}>
             <div className={styles.formGroup}>
               <label htmlFor="title">Challenge Title</label>
               <input
