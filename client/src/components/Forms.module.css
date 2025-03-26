@@ -86,6 +86,10 @@
   .loginLink:hover {
     text-decoration: underline;
   }
+
+  .formLabel{
+    color:#a4a9ae;
+  }
   
   @media (max-width: 768px) {
     .registrationCard {
