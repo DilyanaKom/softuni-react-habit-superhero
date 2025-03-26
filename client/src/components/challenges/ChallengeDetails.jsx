@@ -7,10 +7,14 @@ import convertDate from "../../utils/convertDate";
 
 
 export default function ChallengeDetails() {
-    const {challengeId} = useParams();
+    const { challengeId } = useParams();
     const { _id } = useContext(UserContext);
-    const {currentChallenge} = useChallenges(challengeId);
-    
+    const { currentChallenge } = useChallenges(challengeId);
+
+    const authorId = currentChallenge?.author._id;
+
+
+
     return (
         <div className={styles.detailsContainer}>
             <h1 className={styles.challengeTitle}>{currentChallenge?.title}</h1>
@@ -21,11 +25,20 @@ export default function ChallengeDetails() {
                     <p><strong>Created On:</strong> {convertDate(currentChallenge?._createdOn)}</p>
                     <p><strong>Duration:</strong> {currentChallenge?.duration} days</p>
                     <p className={styles.description}><strong>Description:</strong> {currentChallenge?.description}</p>
-                    {_id && <div className={styles.buttonGroup}>
-                        <button className={styles.editButton}>Edit</button>
-                        <button className={styles.deleteButton}>Delete</button>
-                        <button className={styles.joinButton}>Join</button>
-                    </div>}
+                    {_id && (
+                        <div className={styles.buttonGroup}>
+                            {authorId === _id
+                                ? (
+                                    <>
+                                        <button className={styles.editButton}>Edit</button>
+                                        <button className={styles.deleteButton}>Delete</button>
+                                    </>
+                                )
+                                : null
+                            }
+                            <button className={styles.joinButton}>Join</button>
+                        </div>
+                    )}
 
                 </div>
             </div>
