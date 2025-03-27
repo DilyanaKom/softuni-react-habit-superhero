@@ -1,15 +1,18 @@
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import styles from '../Forms.module.css'
 import { useChallenges } from '../../api/challengeApi';
 
 export default function EditChallenge() {
+  const navigate = useNavigate();
     const {challengeId} = useParams();
-    const {currentChallenge} = useChallenges(challengeId);
+    const {currentChallenge, editChallenge} = useChallenges(challengeId);
 
     const submitAction = async (formData) => {
       const updatedChallengeData = Object.fromEntries(formData);
-      
-      console.log('submit clicked')
+      await editChallenge(challengeId, updatedChallengeData);
+
+      navigate(`/challenges/${challengeId}/details`);
+
     }
     
 
