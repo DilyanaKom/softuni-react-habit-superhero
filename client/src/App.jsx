@@ -17,6 +17,7 @@ import Logout from './components/user/Logout';
 import Profile from './components/userProfile/Profile';
 import ChallengeDetails from './components/challenges/ChallengeDetails';
 import EditChallenge from './components/challenges/EditChallenge';
+import DeleteChallenge from './components/challenges/DeleteChallenge';
 
 
 
@@ -43,6 +44,7 @@ function App() {
             <Route path="/challenges" element={<Catalog/>}/>
             <Route path="/challenges/:challengeId/details" element={<ChallengeDetails/>}/>
             <Route path="/challenges/:challengeId/edit" element={<EditChallenge/>}/>
+            <Route path="/challenges/:challengeId/delete" element={<DeleteChallenge/>}/>
             <Route path="/logout" element={<Logout/>}/>
             <Route path="/profile" element={<Profile/>}/>
 

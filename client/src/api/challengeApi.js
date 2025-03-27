@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { get, patch, post } from "../utils/request";
+import { get, patch, post, remove } from "../utils/request";
 
 const url = 'http://localhost:3030/data/challenges';
 
@@ -50,10 +50,14 @@ const addChallenge = async (challengeData) => {
     } catch (error) {
         console.log(error.message);
     }
-}
+};
 
 const editChallenge = async (challengeId, challengeData) => {
     patch(`${url}/${challengeId}`, challengeData);
+};
+
+const deleteChallenge = async (challengeId) => {
+    remove(`${url}/${challengeId}`);
 }
 
 
@@ -61,6 +65,7 @@ const editChallenge = async (challengeId, challengeData) => {
         challenges,   
         currentChallenge,
         addChallenge,
-        editChallenge
+        editChallenge,
+        deleteChallenge
     }
 }

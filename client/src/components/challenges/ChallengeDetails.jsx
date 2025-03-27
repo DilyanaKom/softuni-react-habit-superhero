@@ -35,7 +35,7 @@ export default function ChallengeDetails() {
                                 ? (
                                     <>
                                         <Link to={`/challenges/${challengeId}/edit`} className={styles.editButton}>Edit</Link>
-                                        <button className={styles.deleteButton}>Delete</button>
+                                        <Link to={`/challenges/${challengeId}/delete`} className={styles.editButton}>Delete</Link>
                                     </>
                                 )
                                 : null
