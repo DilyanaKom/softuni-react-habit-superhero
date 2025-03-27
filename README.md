@@ -3,7 +3,35 @@
 HabitSuperhero is a platform where users can create, join, and complete healthy lifestyle challenges. The app supports both official challenges (pre-created) and community challenges (user-generated), with features such as simple progress tracking and comments.
 
 ---
+# Installation
 
+## Getting the Project
+```bash
+git clone https://github.com/DilyanaKom/softuni-react-habit-superhero.git
+cd softuni-react-habit-superhero
+```
+Or download ZIP from the repository and extract.
+
+### Server
+```bash
+cd server
+npm install
+node server.js
+```
+Server runs on http://localhost:3030
+
+**Note:** The server comes with preseeded challenge and user collections. The service is initialized with three users, which can be used for immediate testing:
+* peter@abv.bg : 123456
+* george@abv.bg : 123456
+* admin@abv.bg : admin
+
+### Client
+```bash
+cd client
+npm install
+npm run dev
+```
+---
 ## Features
 
 **Challenges System (Official & Community Challenges)**
@@ -46,7 +74,7 @@ HabitSuperhero is a platform where users can create, join, and complete healthy 
   - Can comment on any challenge
 - **Actions:**
   - Can create community challenges
-  - Can update only their own challenges (with restrictions once others join)
+  - Can update only their own challenges (only if no one has joined)
   - Can delete only their own challenges (only if no one has joined)
   - Can update and delete only their own comments
 
@@ -59,7 +87,6 @@ HabitSuperhero is a platform where users can create, join, and complete healthy 
   - Vite
   - React.js
   - React Router
-  - Context API
   - CSS (external files)
 
 ### Backend 
@@ -87,17 +114,19 @@ HabitSuperhero is a platform where users can create, join, and complete healthy 
 - Login/Register pages
 
 ### Private Part:
-- My Challenges page (challenges joined/created by user)
+- User profile page (challenges joined/created/completed by user and user details)
 - Create Challenge page
 - Edit Challenge page (only for challenges created by the user)
+- Logout
 
 ### Pages Structure:
 1. Home
 2. Challenges (catalog)
 3. Challenge Details (with comments section)
-4. My Challenges
+4. Profile
 5. Create/Edit Challenge
 6. Login/Register
+7. Logout
 
 ---
 
@@ -106,7 +135,7 @@ HabitSuperhero is a platform where users can create, join, and complete healthy 
 **Challenge Modification Rules:**
 - Challenges with no participants: Full CRUD operations allowed
 - Challenges with participants:
-  - Limited editing (only description field can be modified)
+  - Editing is prevented
   - Deletion is prevented
   - Clear feedback is provided to creators about these restrictions
 
