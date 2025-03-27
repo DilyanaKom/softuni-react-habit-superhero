@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams, Link } from "react-router";
 
 import styles from "./ChallengeDetails.module.css";
@@ -13,12 +13,18 @@ export default function ChallengeDetails() {
     const { challengeId } = useParams();
     const { _id } = useContext(UserContext);
     const { currentChallenge, joinChallenge } = useChallenges(challengeId);
+    const [hasJoined, setHasJoined] = useState(false);
 
     const authorId = currentChallenge?.author._id;
 
- const joinChallengeClickHandler = async () =>{
-    await joinChallenge(_id);
- }
+    useEffect(() => {
+        const isJoined = currentChallenge?.activeParticipants?.includes(_id) || false;
+        setHasJoined(isJoined);
+    })
+
+    const joinChallengeClickHandler = async () => {
+        await joinChallenge(_id);
+    }
 
     return (
         <div className={styles.detailsContainer}>
@@ -42,13 +48,20 @@ export default function ChallengeDetails() {
                                 )
                                 : null
                             }
-                           
-                            <button
-                            onClick={joinChallengeClickHandler}
-                            className={styles.editButton}
-                        >
-                            Join
-                        </button>
+                            {hasJoined
+                            ? (<div
+                                className={styles.alreadyJoined}
+                            >
+                                Already joined
+                            </div>)
+                            : (<button
+                                onClick={joinChallengeClickHandler}
+                                className={styles.editButton}
+                            >
+                                Join
+                            </button>)
+                            }
+
                         </div>
                     )}
 

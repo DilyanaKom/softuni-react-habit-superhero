@@ -6,6 +6,7 @@ const url = 'http://localhost:3030/data/challenges';
 export const useChallenges = (challengeId = null) => {
     const [challenges, setChallenges] = useState([]);
     const [currentChallenge, setCurrentChallenge] = useState(null);
+
     useEffect(() => {
         const searchParams = new URLSearchParams({
             load: `author=_ownerId:users`,
@@ -95,7 +96,7 @@ const joinChallenge = async (userId) => {
     };
 
     try {
-        await patch(`${url}/${challengeId}`, data, options)
+        await patch(`${url}/${challengeId}`, data, options);
         
     } catch (error) {
         console.log(error.message)
