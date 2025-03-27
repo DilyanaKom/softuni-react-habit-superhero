@@ -12,11 +12,13 @@ import convertDate from "../../utils/convertDate";
 export default function ChallengeDetails() {
     const { challengeId } = useParams();
     const { _id } = useContext(UserContext);
-    const { currentChallenge } = useChallenges(challengeId);
+    const { currentChallenge, joinChallenge } = useChallenges(challengeId);
 
     const authorId = currentChallenge?.author._id;
 
-
+ const joinChallengeClickHandler = async () =>{
+    await joinChallenge(_id);
+ }
 
     return (
         <div className={styles.detailsContainer}>
@@ -40,7 +42,13 @@ export default function ChallengeDetails() {
                                 )
                                 : null
                             }
-                            <Link to={`/challenges/${challengeId}/join`} className={styles.editButton}>Join</Link>
+                           
+                            <button
+                            onClick={joinChallengeClickHandler}
+                            className={styles.editButton}
+                        >
+                            Join
+                        </button>
                         </div>
                     )}
 
