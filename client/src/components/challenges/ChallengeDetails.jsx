@@ -20,7 +20,7 @@ export default function ChallengeDetails() {
     useEffect(() => {
         const isJoined = currentChallenge?.activeParticipants?.includes(_id) || false;
         setHasJoined(isJoined);
-    })
+    }, [_id, currentChallenge])
 
     const joinChallengeClickHandler = async () => {
         await joinChallenge(_id);

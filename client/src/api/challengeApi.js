@@ -23,89 +23,93 @@ export const useChallenges = (challengeId = null) => {
         getAllChallenges();
     }, []);
 
-useEffect(() => {
-    if (!challengeId){
-        return;
-    };
-    const searchParams = new URLSearchParams({
-        load: `author=_ownerId:users`,
-    });
+    useEffect(() => {
+        if (!challengeId) {
+            return;
+        };
+        const searchParams = new URLSearchParams({
+            load: `author=_ownerId:users`,
+        });
 
-    const getChallenge = async() => {
+        const getChallenge = async () => {
+            try {
+                const challengeData = await get(`${url}/${challengeId}?${searchParams.toString()}`);
+                setCurrentChallenge(challengeData);
+            } catch (error) {
+
+            }
+        }
+
+        getChallenge();
+    }, [challengeId]);
+
+
+    const addChallenge = async (challengeData) => {
         try {
-            const challengeData = await get(`${url}/${challengeId}?${searchParams.toString()}`);
-            setCurrentChallenge(challengeData);
+            return await post(url, challengeData);
+
         } catch (error) {
-            
-        }
-    }
-
-    getChallenge();
-}, [challengeId]);
-
-
-const addChallenge = async (challengeData) => {
-    try {
-      return await post(url, challengeData);
-        
-    } catch (error) {
-        console.log(error.message);
-        throw error;
-    }
-};
-
-const editChallenge = async (challengeId, challengeData) => {
-    try {
-        await patch(`${url}/${challengeId}`, challengeData);
-        
-    } catch (error) {
-        throw error;
-    }
-    
-};
-
-const deleteChallenge = async (challengeId) => {
-
-    try {
-       await remove(`${url}/${challengeId}`);
-    } catch (error) {
-        throw error;
-    }
-    
-}
-
-const joinChallenge = async (userId) => {
-    const searchParams = new URLSearchParams({
-        select: 'activeParticipants',
-    });
-
-    const currentActiveResult= await get(`${url}/${challengeId}?${searchParams.toString()}`);
-    const activeParticipants = currentActiveResult.activeParticipants;
-
-    if(activeParticipants.includes(userId)){
-        console.log('Already joined')
-        return;
-    }
-    const options= {
-        headers :{
-            "X-Admin": "",
+            console.log(error.message);
+            throw error;
         }
     };
-    const data = {
-        activeParticipants: [...activeParticipants, userId],
+
+    const editChallenge = async (challengeId, challengeData) => {
+        try {
+            await patch(`${url}/${challengeId}`, challengeData);
+
+        } catch (error) {
+            throw error;
+        }
+
     };
 
-    try {
-        await patch(`${url}/${challengeId}`, data, options);
-        
-    } catch (error) {
-        console.log(error.message)
+    const deleteChallenge = async (challengeId) => {
+
+        try {
+            await remove(`${url}/${challengeId}`);
+        } catch (error) {
+            throw error;
+        }
+
     }
-}
+
+    const joinChallenge = async (userId) => {
+        const searchParams = new URLSearchParams({
+            select: 'activeParticipants',
+        });
+
+        const currentActiveResult = await get(`${url}/${challengeId}?${searchParams.toString()}`);
+        const activeParticipants = currentActiveResult.activeParticipants || [];
+
+        if (activeParticipants.includes(userId)) {
+            console.log('Already joined')
+            return;
+        }
+        const options = {
+            headers: {
+                "X-Admin": "",
+            }
+        };
+        const data = {
+            activeParticipants: [...activeParticipants, userId],
+        };
+
+        try {
+            await patch(`${url}/${challengeId}`, data, options);
+            setCurrentChallenge(previous => ({
+                ...previous,
+                activeParticipants: [...activeParticipants, userId]
+            }));
+
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
 
 
     return {
-        challenges,   
+        challenges,
         currentChallenge,
         addChallenge,
         editChallenge,
