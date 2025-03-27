@@ -40,7 +40,7 @@ export default function ChallengeDetails() {
                                 )
                                 : null
                             }
-                            <button className={styles.joinButton}>Join</button>
+                            <Link to={`/challenges/${challengeId}/join`} className={styles.editButton}>Join</Link>
                         </div>
                     )}
 

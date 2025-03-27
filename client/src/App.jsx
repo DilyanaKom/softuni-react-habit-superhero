@@ -18,6 +18,7 @@ import Profile from './components/userProfile/Profile';
 import ChallengeDetails from './components/challenges/ChallengeDetails';
 import EditChallenge from './components/challenges/EditChallenge';
 import DeleteChallenge from './components/challenges/DeleteChallenge';
+import JoinChallenge from './components/challenges/JoinChallenge';
 
 
 
@@ -45,6 +46,7 @@ function App() {
             <Route path="/challenges/:challengeId/details" element={<ChallengeDetails/>}/>
             <Route path="/challenges/:challengeId/edit" element={<EditChallenge/>}/>
             <Route path="/challenges/:challengeId/delete" element={<DeleteChallenge/>}/>
+            <Route path="/challenges/:challengeId/join" element={<JoinChallenge/>}/>
             <Route path="/logout" element={<Logout/>}/>
             <Route path="/profile" element={<Profile/>}/>
 
