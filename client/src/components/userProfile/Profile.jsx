@@ -1,10 +1,11 @@
 import { useContext } from 'react';
 import styles from './Profile.module.css';
 import { UserContext } from '../user/UserContext';
+import { useProfileData } from '../../api/profileApi';
 
 export default function Profile() {
-  const { username, email } = useContext(UserContext);
-  const createdChallenges = [];
+  const { username, email, _id:userId } = useContext(UserContext);
+  const { createdChallenges} = useProfileData(userId);
   const activeChallenges = [];
   const completedChallenges = [];
 
@@ -29,7 +30,7 @@ export default function Profile() {
             <ul className={styles.challengeList}>
               {createdChallenges.length > 0 ? (
                 createdChallenges.map((challenge) => (
-                  <li key={challenge.id} className={styles.challengeItem}>{challenge.title}</li>
+                  <li key={challenge._id} className={styles.challengeItem}>{challenge.title}</li>
                 ))
               ) : (
                 <p>No created challenges yet.</p>
@@ -42,7 +43,7 @@ export default function Profile() {
             <ul className={styles.challengeList}>
               {activeChallenges.length > 0 ? (
                 activeChallenges.map((challenge) => (
-                  <li key={challenge.id} className={`${styles.challengeItem} ${styles.active}`}>{challenge.title}</li>
+                  <li key={challenge._id} className={`${styles.challengeItem} ${styles.active}`}>{challenge.title}</li>
                 ))
               ) : (
                 <p>No active challenges.</p>
