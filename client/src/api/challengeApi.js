@@ -73,12 +73,42 @@ const deleteChallenge = async (challengeId) => {
     
 }
 
+const joinChallenge = async (userId) => {
+    const searchParams = new URLSearchParams({
+        select: 'activeParticipants',
+    });
+
+    const currentActiveResult= await get(`${url}/${challengeId}?${searchParams.toString()}`);
+    const activeParticipants = currentActiveResult.activeParticipants;
+
+    if(activeParticipants.includes(userId)){
+        console.log('Already joined')
+        return;
+    }
+    const options= {
+        headers :{
+            "X-Admin": "",
+        }
+    };
+    const data = {
+        activeParticipants: [...activeParticipants, userId],
+    };
+
+    try {
+        await patch(`${url}/${challengeId}`, data, options)
+        
+    } catch (error) {
+        console.log(error.message)
+    }
+}
+
 
     return {
         challenges,   
         currentChallenge,
         addChallenge,
         editChallenge,
-        deleteChallenge
+        deleteChallenge,
+        joinChallenge
     }
 }
