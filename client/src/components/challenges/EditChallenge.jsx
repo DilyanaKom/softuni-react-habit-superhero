@@ -8,10 +8,16 @@ export default function EditChallenge() {
     const {currentChallenge, editChallenge} = useChallenges(challengeId);
 
     const submitAction = async (formData) => {
-      const updatedChallengeData = Object.fromEntries(formData);
-      await editChallenge(challengeId, updatedChallengeData);
+      try {
+        const updatedChallengeData = Object.fromEntries(formData);
+        await editChallenge(challengeId, updatedChallengeData);
+  
+        navigate(`/challenges/${challengeId}/details`);
+      } catch (error) {
+        console.log(error.message)
+        
+      }
 
-      navigate(`/challenges/${challengeId}/details`);
 
     }
     

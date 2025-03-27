@@ -45,19 +45,32 @@ useEffect(() => {
 
 const addChallenge = async (challengeData) => {
     try {
-      await post(url, challengeData);
+      return await post(url, challengeData);
         
     } catch (error) {
         console.log(error.message);
+        throw error;
     }
 };
 
 const editChallenge = async (challengeId, challengeData) => {
-    patch(`${url}/${challengeId}`, challengeData);
+    try {
+        await patch(`${url}/${challengeId}`, challengeData);
+        
+    } catch (error) {
+        throw error;
+    }
+    
 };
 
 const deleteChallenge = async (challengeId) => {
-    remove(`${url}/${challengeId}`);
+
+    try {
+       await remove(`${url}/${challengeId}`);
+    } catch (error) {
+        throw error;
+    }
+    
 }
 
 
