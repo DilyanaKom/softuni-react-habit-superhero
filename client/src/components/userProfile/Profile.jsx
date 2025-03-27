@@ -1,11 +1,12 @@
 import { useContext } from 'react';
+import { Link } from 'react-router';
 import styles from './Profile.module.css';
 import { UserContext } from '../user/UserContext';
 import { useProfileData } from '../../api/profileApi';
 
 export default function Profile() {
-  const { username, email, _id:userId } = useContext(UserContext);
-  const { createdChallenges} = useProfileData(userId);
+  const { username, email, _id: userId } = useContext(UserContext);
+  const { createdChallenges } = useProfileData(userId);
   const activeChallenges = [];
   const completedChallenges = [];
 
@@ -24,13 +25,19 @@ export default function Profile() {
         {/* Right side - Challenges */}
         <div className={styles.challengesContainer}>
           <h2 className={styles.challengesTitle}>My Challenges</h2>
-          
+
           <div className={styles.challengeBlock}>
             <h3 className={styles.sectionTitle}>Created Challenges</h3>
             <ul className={styles.challengeList}>
               {createdChallenges.length > 0 ? (
                 createdChallenges.map((challenge) => (
-                  <li key={challenge._id} className={styles.challengeItem}>{challenge.title}</li>
+                  <li key={challenge._id} className={styles.challengeItem}>
+                    <span className={styles.challengeTitle}>{challenge.title}</span>
+                    <div className={styles.buttonContainer}>
+                      <Link to={`/challenges/${challenge._id}/edit`} className={styles.editButton}>Edit</Link>
+                      <Link to={`/challenges/${challenge._id}/delete`} className={styles.deleteButton}>Delete</Link>
+                    </div>
+                  </li>
                 ))
               ) : (
                 <p>No created challenges yet.</p>
