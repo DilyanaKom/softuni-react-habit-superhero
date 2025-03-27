@@ -14,16 +14,27 @@ export const useProfileData = (userId = null) => {
             where: `_ownerId="${userId}"`,
 
         });
-        get(`${url}?${searchParams}`)
+        get(`${url}?${searchParams.toString()}`)
             .then(result => {
                 setCreatedChallenges(result)
             });
     }, [userId]);
 
+    useEffect(() => {
+        get(url)
+            .then(result => {
+                const filtered = result.filter(
+                    challenge => challenge.activeParticipants?.includes(userId)
+                )
+                setActiveChallenges(filtered);
+            })
+    }, [userId])
+
 
 
     return {
         createdChallenges,
+        activeChallenges,
     }
 
 }

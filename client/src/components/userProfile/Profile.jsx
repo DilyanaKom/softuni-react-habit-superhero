@@ -6,8 +6,8 @@ import { useProfileData } from '../../api/profileApi';
 
 export default function Profile() {
   const { username, email, _id: userId } = useContext(UserContext);
-  const { createdChallenges } = useProfileData(userId);
-  const activeChallenges = [];
+  const { createdChallenges, activeChallenges } = useProfileData(userId);
+
   const completedChallenges = [];
 
   return (
