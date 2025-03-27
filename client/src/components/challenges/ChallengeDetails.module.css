@@ -83,3 +83,12 @@
   box-shadow: none;
   color: white;
 }
+
+.alreadyJoined {
+  padding: 10px 15px;
+  border: none;
+  font-weight: 500;
+  border-radius: 4px;
+  background-color: #FFB347;
+  color: white;
+}
