@@ -107,7 +107,7 @@ export const useChallenges = (challengeId = null) => {
         }
     }
     
-    const completeChallenge = async (challengeId, userId) => {
+    const completeChallenge = async (userId) => {
         const searchParams = new URLSearchParams({
             select: 'completedBy,activeParticipants',
         });
@@ -115,6 +115,7 @@ export const useChallenges = (challengeId = null) => {
         const result = await get(`${url}/${challengeId}?${searchParams.toString()}`);
         const completedByParticipants = result.completedBy || [];
         const activeParticipants = result.activeParticipants;
+        console.log(activeParticipants);
 
         if (completedByParticipants.includes(userId)) {
             console.log('Already completed')
@@ -126,7 +127,7 @@ export const useChallenges = (challengeId = null) => {
             }
         };
 
-        const updatedActiveParticipants = activeParticipants.filer(id => id !==userId);
+        const updatedActiveParticipants = activeParticipants.filter(id => id !==userId);
 
         const data = {
             completedBy: [...completedByParticipants, userId],

@@ -8,11 +8,11 @@ import { useChallenges } from '../../api/challengeApi';
 export default function Profile() {
   const { username, email, _id: userId } = useContext(UserContext);
   const { createdChallenges, activeChallenges, completedChallenges } = useProfileData(userId);
-  const { completeChallenge} = useChallenges();
+  const { completeChallenge } = useChallenges();
 
   const completeChallengeClickHandler = async (challengeId) => {
     await completeChallenge(challengeId, userId);
-}
+  }
   return (
     <div className={styles.profileContainer}>
       <div className={styles.profileLayout}>
@@ -25,7 +25,7 @@ export default function Profile() {
           </div>
         </div>
 
-   
+
         <div className={styles.challengesContainer}>
           <h2 className={styles.challengesTitle}>My Challenges</h2>
 
@@ -57,8 +57,6 @@ export default function Profile() {
                     <span className={styles.challengeTitle}>{challenge.title}</span>
                     <div className={styles.buttonContainer}>
                       <button
-                        onClick={() => completeChallengeClickHandler(challenge._id)}
-                        className={styles.editButton}
                       >
                         Complete
                       </button>

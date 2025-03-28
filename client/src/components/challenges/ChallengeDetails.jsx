@@ -12,18 +12,25 @@ import convertDate from "../../utils/convertDate";
 export default function ChallengeDetails() {
     const { challengeId } = useParams();
     const { _id } = useContext(UserContext);
-    const { currentChallenge, joinChallenge } = useChallenges(challengeId);
+    const { currentChallenge, joinChallenge, completeChallenge } = useChallenges(challengeId);
     const [hasJoined, setHasJoined] = useState(false);
+    const [hasCompleted, setHasCompleted] = useState(false);
 
     const authorId = currentChallenge?.author._id;
 
     useEffect(() => {
         const isJoined = currentChallenge?.activeParticipants?.includes(_id) || false;
+        const isCompleted = currentChallenge?.completedBy?.includes(_id) || false;
         setHasJoined(isJoined);
+        setHasCompleted(isCompleted);
     }, [_id, currentChallenge])
 
     const joinChallengeClickHandler = async () => {
         await joinChallenge(_id);
+    };
+
+    const completeChallengeClickHandler = async () => {
+        await completeChallenge(_id);
     }
 
     return (
@@ -48,23 +55,30 @@ export default function ChallengeDetails() {
                                 )
                                 : null
                             }
-                            {hasJoined
-                            ? (<div
-                                className={styles.alreadyJoined}
-                            >
-                                Already joined
-                            </div>)
-                            : (<button
-                                onClick={joinChallengeClickHandler}
-                                className={styles.editButton}
-                            >
-                                Join
-                            </button>)
+                            {hasCompleted
+                                ? (
+                                    <span className={styles.alreadyCompleted}>Already Completed</span>
+                                )
+                                : hasJoined
+                                    ? (
+                                        <button
+                                            onClick={completeChallengeClickHandler}
+                                            className={styles.editButton}
+                                        >
+                                            Complete
+                                        </button>
+                                    )
+                                    : (
+                                        <button
+                                            onClick={joinChallengeClickHandler}
+                                            className={styles.editButton}
+                                        >
+                                            Join
+                                        </button>
+                                    )
                             }
-
                         </div>
                     )}
-
                 </div>
             </div>
         </div>
