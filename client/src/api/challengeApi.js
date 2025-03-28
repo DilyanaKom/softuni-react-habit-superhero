@@ -106,6 +106,45 @@ export const useChallenges = (challengeId = null) => {
             console.log(error.message)
         }
     }
+    
+    const completeChallenge = async (challengeId, userId) => {
+        const searchParams = new URLSearchParams({
+            select: 'completedBy,activeParticipants',
+        });
+
+        const result = await get(`${url}/${challengeId}?${searchParams.toString()}`);
+        const completedByParticipants = result.completedBy || [];
+        const activeParticipants = result.activeParticipants;
+
+        if (completedByParticipants.includes(userId)) {
+            console.log('Already completed')
+            return;
+        }
+        const options = {
+            headers: {
+                "X-Admin": "",
+            }
+        };
+
+        const updatedActiveParticipants = activeParticipants.filer(id => id !==userId);
+
+        const data = {
+            completedBy: [...completedByParticipants, userId],
+            activeParticipants: updatedActiveParticipants,
+        };
+
+        try {
+            await patch(`${url}/${challengeId}`, data, options);
+            setCurrentChallenge(previous => ({
+                ...previous,
+                completedBy: [...completedByParticipants, userId],
+                activeParticipants: updatedActiveParticipants
+            }));
+
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
 
 
     return {
@@ -114,6 +153,7 @@ export const useChallenges = (challengeId = null) => {
         addChallenge,
         editChallenge,
         deleteChallenge,
-        joinChallenge
+        joinChallenge,
+        completeChallenge
     }
 }
