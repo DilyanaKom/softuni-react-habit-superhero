@@ -18,6 +18,7 @@ import Profile from './components/userProfile/Profile';
 import ChallengeDetails from './components/challenges/ChallengeDetails';
 import EditChallenge from './components/challenges/EditChallenge';
 import DeleteChallenge from './components/challenges/DeleteChallenge';
+import GuardedRoute from './components/guards/GuardedRoute';
 
 
 
@@ -34,25 +35,25 @@ function App() {
 
   return (
     <>
-        <UserContext.Provider value={{...authData,userLoginHandler}}>
+      <UserContext.Provider value={{ ...authData, userLoginHandler }}>
         <NavigationProvider>
           <Navigation />
           <Routes>
             <Route index element={<Hero />} />
-            <Route path="/register" element={<Register/>}/>
-            <Route path="/login" element={<Login/>}/>
-            <Route path="/create" element={<CreateChallengeForm/>}/>
-            <Route path="/challenges" element={<Catalog/>}/>
-            <Route path="/challenges/:challengeId/details" element={<ChallengeDetails/>}/>
-            <Route path="/challenges/:challengeId/edit" element={<EditChallenge/>}/>
-            <Route path="/challenges/:challengeId/delete" element={<DeleteChallenge/>}/>
-            {/* <Route path="/challenges/:challengeId/join" element={<JoinChallenge/>}/> */}
-            <Route path="/logout" element={<Logout/>}/>
-            <Route path="/profile" element={<Profile/>}/>
-
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/challenges" element={<Catalog />} />
+            <Route path="/challenges/:challengeId/details" element={<ChallengeDetails />} />
+            <Route element={<GuardedRoute/>}>
+              <Route path="/create" element={<CreateChallengeForm />} />
+              <Route path="/challenges/:challengeId/edit" element={<EditChallenge />} />
+              <Route path="/challenges/:challengeId/delete" element={<DeleteChallenge />} />
+              <Route path="/logout" element={<Logout />} />
+              <Route path="/profile" element={<Profile />} />
+            </Route>
           </Routes>
         </NavigationProvider>
-        </UserContext.Provider>
+      </UserContext.Provider>
     </>
   )
 }
