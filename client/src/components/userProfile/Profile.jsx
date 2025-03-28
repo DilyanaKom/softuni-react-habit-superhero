@@ -50,7 +50,12 @@ export default function Profile() {
             <ul className={styles.challengeList}>
               {activeChallenges.length > 0 ? (
                 activeChallenges.map((challenge) => (
-                  <li key={challenge._id} className={`${styles.challengeItem} ${styles.active}`}>{challenge.title}</li>
+                  <li key={challenge._id} className={`${styles.challengeItem} ${styles.active}`}>
+                    <span className={styles.challengeTitle}>{challenge.title}</span>
+                    <div className={styles.buttonContainer}>
+                      <Link to={`/challenges/${challenge._id}/complete`} className={styles.editButton}>Complete</Link>
+                    </div>
+                    </li>
                 ))
               ) : (
                 <p>No active challenges.</p>
