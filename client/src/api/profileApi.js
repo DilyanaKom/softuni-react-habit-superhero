@@ -23,10 +23,14 @@ export const useProfileData = (userId = null) => {
     useEffect(() => {
         get(url)
             .then(result => {
-                const filtered = result.filter(
+                const filteredActive = result.filter(
                     challenge => challenge.activeParticipants?.includes(userId)
-                )
-                setActiveChallenges(filtered);
+                );
+                const filteredCompleted = result.filter(
+                    challenge => challenge.completedBy?.includes(userId)
+                );
+                setActiveChallenges(filteredActive);
+                setCompletedChallenges(filteredCompleted);
             })
     }, [userId])
 
@@ -35,6 +39,7 @@ export const useProfileData = (userId = null) => {
     return {
         createdChallenges,
         activeChallenges,
+        completedChallenges
     }
 
 }
