@@ -1,13 +1,22 @@
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router';
 import styles from './Profile.module.css';
 import { UserContext } from '../user/UserContext';
 import { useProfileData } from '../../api/profileApi';
-import { useChallenges } from '../../api/challengeApi';
+import { useChallengeParticipiaction } from '../../api/challengeApi';
 
 export default function Profile() {
   const { username, email, _id: userId } = useContext(UserContext);
-  const { createdChallenges, activeChallenges, completedChallenges } = useProfileData(userId);
+  const { createdChallenges, activeChallenges, completedChallenges, refetchChallenges } = useProfileData(userId);
+  const { handleCompleteChallenge} = useChallengeParticipiaction()
+
+
+  const completeClickHandler = async (challengeId) => {
+
+  await handleCompleteChallenge(challengeId,userId);
+  refetchChallenges();
+
+}
 
   return (
     <div className={styles.profileContainer}>
@@ -53,6 +62,8 @@ export default function Profile() {
                     <span className={styles.challengeTitle}>{challenge.title}</span>
                     <div className={styles.buttonContainer}>
                       <button
+                      className={styles.editButton}
+                      onClick = {() => completeClickHandler(challenge._id)}
                       >
                         Complete
                       </button>

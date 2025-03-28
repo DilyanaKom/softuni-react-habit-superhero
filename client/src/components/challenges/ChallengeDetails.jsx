@@ -4,33 +4,37 @@ import { useParams, Link } from "react-router";
 import styles from "./ChallengeDetails.module.css";
 
 import { UserContext } from "../user/UserContext";
-import { useChallenges } from "../../api/challengeApi";
+import { useChallenges, useChallengeParticipiaction } from "../../api/challengeApi";
 
 import convertDate from "../../utils/convertDate";
 
 
 export default function ChallengeDetails() {
     const { challengeId } = useParams();
-    const { _id } = useContext(UserContext);
-    const { currentChallenge, joinChallenge, completeChallenge } = useChallenges(challengeId);
+    const { _id: userId } = useContext(UserContext);
+    const { currentChallenge } = useChallenges(challengeId);
+    const { handleJoinChallenge, handleCompleteChallenge} = useChallengeParticipiaction(challengeId);
     const [hasJoined, setHasJoined] = useState(false);
     const [hasCompleted, setHasCompleted] = useState(false);
 
     const authorId = currentChallenge?.author._id;
 
     useEffect(() => {
-        const isJoined = currentChallenge?.activeParticipants?.includes(_id) || false;
-        const isCompleted = currentChallenge?.completedBy?.includes(_id) || false;
+        const isJoined = currentChallenge?.activeParticipants?.includes(userId) || false;
+        const isCompleted = currentChallenge?.completedBy?.includes(userId) || false;
         setHasJoined(isJoined);
         setHasCompleted(isCompleted);
-    }, [_id, currentChallenge])
+    }, [userId, currentChallenge])
 
     const joinChallengeClickHandler = async () => {
-        await joinChallenge(_id);
+        await handleJoinChallenge(challengeId,userId);
+        setHasJoined(true);
     };
 
     const completeChallengeClickHandler = async () => {
-        await completeChallenge(_id);
+        await handleCompleteChallenge(challengeId,userId);
+        setHasCompleted(true);
+        setHasJoined(false);
     }
 
     return (
@@ -44,9 +48,9 @@ export default function ChallengeDetails() {
                     <p><strong>Duration:</strong> {currentChallenge?.duration} days</p>
                     <p><strong>Difficulty:</strong> {currentChallenge?.difficulty}</p>
                     <p className={styles.description}><strong>Description:</strong> {currentChallenge?.description}</p>
-                    {_id && (
+                    {userId && (
                         <div className={styles.buttonGroup}>
-                            {authorId === _id
+                            {authorId === userId
                                 ? (
                                     <>
                                         <Link to={`/challenges/${challengeId}/edit`} className={styles.editButton}>Edit</Link>

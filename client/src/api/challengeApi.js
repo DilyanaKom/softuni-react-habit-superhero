@@ -74,7 +74,7 @@ export const useChallenges = (challengeId = null) => {
 
     }
 
-    const joinChallenge = async (userId) => {
+    const joinChallenge = async (challengeId, userId) => {
         const searchParams = new URLSearchParams({
             select: 'activeParticipants',
         });
@@ -107,7 +107,7 @@ export const useChallenges = (challengeId = null) => {
         }
     }
     
-    const completeChallenge = async (userId) => {
+    const completeChallenge = async (challengeId, userId) => {
         const searchParams = new URLSearchParams({
             select: 'completedBy,activeParticipants',
         });
@@ -156,5 +156,22 @@ export const useChallenges = (challengeId = null) => {
         deleteChallenge,
         joinChallenge,
         completeChallenge
+    }
+}
+
+export const useChallengeParticipiaction = () => {
+const {joinChallenge, completeChallenge} = useChallenges();
+
+    const handleJoinChallenge = async (challengeId, userId) =>{
+        await joinChallenge(challengeId, userId);
+    };
+
+    const handleCompleteChallenge = async (challengeId, userId) => {
+        await completeChallenge(challengeId, userId);
+    };
+
+    return {
+        handleJoinChallenge,
+        handleCompleteChallenge,
     }
 }

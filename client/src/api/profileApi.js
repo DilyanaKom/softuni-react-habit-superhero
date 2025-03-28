@@ -1,6 +1,5 @@
-import { useContext, useEffect, useState } from "react";
-import { get, patch, post, remove } from "../utils/request";
-import { UserContext } from "../components/user/UserContext";
+import { useEffect, useState } from "react";
+import { get } from "../utils/request";
 
 const url = 'http://localhost:3030/data/challenges';
 
@@ -9,7 +8,7 @@ export const useProfileData = (userId = null) => {
     const [activeChallenges, setActiveChallenges] = useState([]);
     const [completedChallenges, setCompletedChallenges] = useState([]);
 
-    useEffect(() => {
+    const refetchChallenges = () => {
         const searchParams = new URLSearchParams({
             where: `_ownerId="${userId}"`,
 
@@ -18,9 +17,6 @@ export const useProfileData = (userId = null) => {
             .then(result => {
                 setCreatedChallenges(result)
             });
-    }, [userId]);
-
-    useEffect(() => {
         get(url)
             .then(result => {
                 const filteredActive = result.filter(
@@ -31,15 +27,25 @@ export const useProfileData = (userId = null) => {
                 );
                 setActiveChallenges(filteredActive);
                 setCompletedChallenges(filteredCompleted);
-            })
+            });
+    };
+
+    useEffect(() => {
+        refetchChallenges()
     }, [userId])
-
-
 
     return {
         createdChallenges,
         activeChallenges,
-        completedChallenges
+        completedChallenges,
+        refetchChallenges
     }
-
 }
+
+
+
+
+
+
+
+
