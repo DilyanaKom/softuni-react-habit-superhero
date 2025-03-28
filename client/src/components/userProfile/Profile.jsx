@@ -8,11 +8,7 @@ import { useChallenges } from '../../api/challengeApi';
 export default function Profile() {
   const { username, email, _id: userId } = useContext(UserContext);
   const { createdChallenges, activeChallenges, completedChallenges } = useProfileData(userId);
-  const { completeChallenge } = useChallenges();
 
-  const completeChallengeClickHandler = async (challengeId) => {
-    await completeChallenge(challengeId, userId);
-  }
   return (
     <div className={styles.profileContainer}>
       <div className={styles.profileLayout}>
