@@ -6,10 +6,10 @@ import styles from '../Forms.module.css';
 import { useRegister } from '../../api/authApi';
 import { UserContext } from './UserContext';
 
+import ErrorNotification from '../errors/ErrorNotification';
+
 export default function Register(){
-    //TODO error handling
-    //TODO check repeat pasword
-    const {register} = useRegister();
+    const {register, error, clearError, setError} = useRegister();
     const {userLoginHandler} = useContext(UserContext);
     const navigate = useNavigate();
 
@@ -20,7 +20,16 @@ export default function Register(){
         const password = registerData.password;
         const confirmPassword = registerData.confirmPassword;
 
+        if(password !== confirmPassword){
+            setError('Passwords don\'t match!');
+            return;
+        }
+
         const userData = await register(username, email, password);
+
+        if(!userData){
+            return;
+        }
         userLoginHandler(userData);
 
         navigate('/');
@@ -50,6 +59,7 @@ export default function Register(){
             <button type="submit" className={styles.btnPrimary} disabled={isPending}>Register</button>
         </div>
     </form>
+        <ErrorNotification error={error} onClear={clearError}/>
     <div className={`${styles.mt4} ${styles.textCenter}`}>
         <p>Already registered? <Link to="/login" className={styles.loginLink}>Login</Link></p>
     </div>                

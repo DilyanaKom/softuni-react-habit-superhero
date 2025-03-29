@@ -8,7 +8,6 @@ import { UserContext } from './UserContext';
 import ErrorNotification from '../errors/ErrorNotification';
 
 export default function Login(){
-    //TODO error handling
 
     const { login, error, clearError } = useLogin();
     const { userLoginHandler } = useContext(UserContext)

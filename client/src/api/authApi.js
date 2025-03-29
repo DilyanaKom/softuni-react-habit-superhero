@@ -35,19 +35,24 @@ export const useLogin = () => {
 };
 
 export const useRegister = () => {
+    const { error, setError, clearError } = useErrorHandler();
     const register = async (username, email, password) => {
         try {
             const response = await post(`${url}/register`, { username, email, password });
             return response;
         } catch (error) {
-            console.log(error)
+            setError(error.message || 'Register failed');
+            return null;
 
         }
 
     }
 
     return {
-        register
+        register,
+        error,
+        setError,
+        clearError
     }
 };
 
