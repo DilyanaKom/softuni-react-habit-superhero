@@ -1,5 +1,5 @@
 import { useChallenges } from "../../api/challengeApi";
-import Hero from "../Hero";
+import Hero from "./Hero";
 import CatalogItem from "../challenges/CatalogItem";
 
 export default function Home(){

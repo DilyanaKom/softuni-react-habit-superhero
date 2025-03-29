@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 
 import styles from './Hero.module.css';
-import Search from "./Search";
 
 export default function Hero() {
 
