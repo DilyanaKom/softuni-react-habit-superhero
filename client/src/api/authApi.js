@@ -62,7 +62,8 @@ export const useLogout = () => {
         try {
             return await get(`${url}/logout`);
         } catch (error) {
-            setError(error.message || "Logout failed.")
+            setError(error.message || "Logout failed.");
+            throw error;
             
         }
     
