@@ -1,3 +1,5 @@
+import handleServerError from "./serverError.js"
+
 async function request(method, url, data, options = {}) {
     const user = JSON.parse(localStorage.getItem('auth'));
 
@@ -32,9 +34,7 @@ async function request(method, url, data, options = {}) {
 
     try {
         const response = await fetch(url, options);
-        if (response.status === 403){
-            throw new Error("Incorrect email or password!")
-        }
+
         if(response.status === 204){
             return null;
         }
@@ -42,7 +42,7 @@ async function request(method, url, data, options = {}) {
         const result = await response.json();
 
         if (!response.ok) {
-            throw new Error(result.message);
+            handleServerError(response.status, result);
         }
         return result;
     } catch (error) { 
