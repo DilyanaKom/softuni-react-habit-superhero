@@ -15,10 +15,14 @@ export default function Login(){
     
     const loginHandler = async (state, formData) => {
         const { email, password} = Object.fromEntries(formData);
+
+        const persistedUserData = {
+            email,
+        }
         
         const authData = await login(email, password);
         if(!authData){
-            return;
+            return persistedUserData;
         }
         userLoginHandler(authData);
         navigate('/')
@@ -35,7 +39,7 @@ export default function Login(){
     <h2 className={`${styles.textPrimary} ${styles.mb5}`}>Login</h2>
     <form id="login-form" action={action} className={styles.contactForm}>
         <div className={styles.formGroup}>
-            <input type="text" name="email" className={styles.formControl} placeholder="Email" required />
+            <input type="text" name="email" className={styles.formControl} placeholder="Email" defaultValue={state.username} required />
         </div>
         <div className={styles.formGroup}>
             <input type="password" name="password" className={styles.formControl} placeholder="Password" required />
