@@ -21,6 +21,7 @@ export default function Logout() {
                 navigate('/');
             })
             .catch(() => {
+                userLoginHandler({});
             })
 
     }, [])
