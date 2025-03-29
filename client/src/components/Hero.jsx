@@ -83,7 +83,6 @@ export default function Hero() {
                     className={styles.heroImage}
                 />
                 <div className={styles.searchContainer}>
-                    <Search />
                 </div>
             </div>
         </div>
