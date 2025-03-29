@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { get, patch, post, remove } from "../utils/request";
+import { useErrorHandler } from "../hooks/errorHandler";
 
 const url = 'http://localhost:3030/data/challenges';
 
 export const useChallenges = (challengeId = null) => {
     const [challenges, setChallenges] = useState([]);
     const [currentChallenge, setCurrentChallenge] = useState(null);
+    const { error, setError, clearError} = useErrorHandler();
 
     useEffect(() => {
         const searchParams = new URLSearchParams({
@@ -17,7 +19,8 @@ export const useChallenges = (challengeId = null) => {
                 setChallenges(data);
 
             } catch (error) {
-                console.log(error.message)
+                setError(error.message || "Loading challenges failed.");
+                throw error;
             }
         };
         getAllChallenges();
@@ -36,7 +39,8 @@ export const useChallenges = (challengeId = null) => {
                 const challengeData = await get(`${url}/${challengeId}?${searchParams.toString()}`);
                 setCurrentChallenge(challengeData);
             } catch (error) {
-
+                setError(error.message || "Loading challenge failed.");
+                throw error;
             }
         }
 
@@ -49,7 +53,7 @@ export const useChallenges = (challengeId = null) => {
             return await post(url, challengeData);
 
         } catch (error) {
-            console.log(error.message);
+            setError(error.message || "Adding challenge failed.");
             throw error;
         }
     };
@@ -59,6 +63,7 @@ export const useChallenges = (challengeId = null) => {
             await patch(`${url}/${challengeId}`, challengeData);
 
         } catch (error) {
+            setError(error.message || "Editing challenge failed.");
             throw error;
         }
 
@@ -69,6 +74,7 @@ export const useChallenges = (challengeId = null) => {
         try {
             await remove(`${url}/${challengeId}`);
         } catch (error) {
+            setError(error.message || "Deleting challenge failed.");
             throw error;
         }
 
@@ -103,7 +109,8 @@ export const useChallenges = (challengeId = null) => {
             }));
 
         } catch (error) {
-            console.log(error.message)
+            setError(error.message || "Join challenge failed.");
+            throw error;
         }
     }
     
@@ -143,7 +150,8 @@ export const useChallenges = (challengeId = null) => {
             }));
 
         } catch (error) {
-            console.log(error.message)
+            setError(error.message || "Complete challenge failed.");
+            throw error;
         }
     }
 
@@ -151,6 +159,8 @@ export const useChallenges = (challengeId = null) => {
     return {
         challenges,
         currentChallenge,
+        error,
+        clearError,
         addChallenge,
         editChallenge,
         deleteChallenge,

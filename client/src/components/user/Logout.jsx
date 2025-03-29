@@ -20,8 +20,7 @@ export default function Logout() {
                 userLoginHandler({});
                 navigate('/');
             })
-            .catch((error) => {
-                console.log(error.message)
+            .catch(() => {
             })
 
     }, [])
