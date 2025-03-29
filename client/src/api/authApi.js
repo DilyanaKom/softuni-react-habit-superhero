@@ -57,12 +57,21 @@ export const useRegister = () => {
 };
 
 export const useLogout = () => {
+    const { error, setError, clearError } = useErrorHandler();
     const logout = async () => {
-        return get(`${url}/logout`);
+        try {
+            return await get(`${url}/logout`);
+        } catch (error) {
+            setError(error.message || "Logout failed.")
+            
+        }
+    
     }
 
     return {
-        logout
+        logout,
+        error,
+        clearError
     }
 
 }
