@@ -7,6 +7,7 @@ const url = 'http://localhost:3030/data/challenges';
 export const useChallenges = (challengeId = null) => {
     const [challenges, setChallenges] = useState([]);
     const [currentChallenge, setCurrentChallenge] = useState(null);
+    const [latestChallenges, setLatestChallenges] = useState(null);
     const { error, setError, clearError} = useErrorHandler();
 
     useEffect(() => {
@@ -46,6 +47,27 @@ export const useChallenges = (challengeId = null) => {
 
         getChallenge();
     }, [challengeId]);
+
+    useEffect(()=>{
+        const searchParams = new URLSearchParams({
+            load: `author=_ownerId:users`,
+            sortBy: '_createdOn desc',
+            pageSize: 4,
+
+        });
+
+        const getLatestChallenges = async () => {
+            try {
+                const data = await get(`${url}?${searchParams.toString()}`);
+                setLatestChallenges(data);
+            } catch (error) {
+                setError(error.message || "Loading challenges failed.");
+                throw error;
+            }
+        };
+        getLatestChallenges();
+
+    }, []);
 
 
     const addChallenge = async (challengeData) => {
@@ -159,6 +181,7 @@ export const useChallenges = (challengeId = null) => {
     return {
         challenges,
         currentChallenge,
+        latestChallenges,
         error,
         clearError,
         addChallenge,
