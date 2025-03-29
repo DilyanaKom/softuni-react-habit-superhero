@@ -20,15 +20,20 @@ export default function Register() {
         const password = registerData.password;
         const confirmPassword = registerData.confirmPassword;
 
+        const persistedUserData = {
+            username,
+            email
+        }
+
         if (password !== confirmPassword) {
             setError('Passwords don\'t match!');
-            return;
+            return persistedUserData;
         }
 
         const userData = await register(username, email, password);
 
         if (!userData) {
-            return;
+            return persistedUserData;
         }
         userLoginHandler(userData);
 
@@ -45,11 +50,11 @@ export default function Register() {
                 <form id="register-form" action={action} className={styles.contactForm}>
                     <div className={styles.formGroup}>
                         <label htmlFor="username" className={styles.formLabel}>Username</label>
-                        <input type="text" id="username" name="username" className={styles.formControl} placeholder="Username" required />
+                        <input type="text" id="username" name="username" className={styles.formControl} placeholder="Username" defaultValue={state.username} required />
                     </div>
                     <div className={styles.formGroup}>
                         <label htmlFor="email" className={styles.formLabel}>Email</label>
-                        <input type="email" id="email" name="email" className={styles.formControl} placeholder="Email" required />
+                        <input type="email" id="email" name="email" className={styles.formControl} placeholder="Email" defaultValue={state.email} required />
                     </div>
                     <div className={styles.formGroup}>
                         <label htmlFor="password" className={styles.formLabel}>Password</label>
