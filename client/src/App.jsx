@@ -19,6 +19,7 @@ import EditChallenge from './components/challenges/EditChallenge';
 import DeleteChallenge from './components/challenges/DeleteChallenge';
 import GuardedRoute from './components/guards/GuardedRoute';
 import Home from './components/home/Home';
+import Footer from './components/Footer';
 
 
 
@@ -52,6 +53,7 @@ function App() {
               <Route path="/profile" element={<Profile />} />
             </Route>
           </Routes>
+          <Footer/>
         </NavigationProvider>
       </UserContext.Provider>
     </>
