@@ -32,16 +32,20 @@ async function request(method, url, data, options = {}) {
 
     try {
         const response = await fetch(url, options);
-
-        if(response.status === 204){
-            return;
+        if (response.status === 403){
+            throw new Error("Incorrect email or password!")
         }
+        if(response.status === 204){
+            return null;
+        }
+
         const result = await response.json();
+
         if (!response.ok) {
             throw new Error(result.message);
         }
         return result;
-    } catch (error) {
+    } catch (error) { 
         throw error;
     }
 
