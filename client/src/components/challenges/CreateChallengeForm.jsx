@@ -59,8 +59,8 @@ export default function CreateChallenge() {
             <label htmlFor="mediaUrl" className={styles.formLabel}>Image/Video URL</label>
             <input
               type="text"
-              id="mediaUrl"
-              name="mediaUrl"
+              id="mediaLink"
+              name="mediaLink"
               className={styles.formControl}
               placeholder="Enter media URL (optional)"
             />

@@ -67,8 +67,8 @@ export default function EditChallenge() {
               <label htmlFor="mediaUrl">Image/Video URL</label>
               <input
                 type="text"
-                id="mediaUrl"
-                name="mediaUrl"
+                id="mediaLink"
+                name="mediaLink"
                 className={styles.formControl}
                 placeholder="Image/Video URL"
                 defaultValue={currentChallenge?.mediaUrl}

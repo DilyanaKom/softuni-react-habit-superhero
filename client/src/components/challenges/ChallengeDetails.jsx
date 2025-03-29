@@ -41,7 +41,7 @@ export default function ChallengeDetails() {
         <div className={styles.detailsContainer}>
             <h1 className={styles.challengeTitle}>{currentChallenge?.title}</h1>
             <div className={styles.detailsContent}>
-                <div className={styles.mediaDisplay}>Media Placeholder</div>
+                <div className={styles.mediaDisplay}>{currentChallenge?.mediaLink}</div>
                 <div className={styles.infoSection}>
                     <p><strong>Author:</strong> {currentChallenge?.author.username}</p>
                     <p><strong>Created On:</strong> {convertDate(currentChallenge?._createdOn)}</p>
