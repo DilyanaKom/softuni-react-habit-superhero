@@ -6,8 +6,10 @@ export default function CreateChallenge() {
   const { addChallenge } = useChallenges(null);
   const navigate = useNavigate();
 
+
   const submitAction = async (formData) => {
     const challengeData = Object.fromEntries(formData);
+
 
     try {
       await addChallenge(challengeData);
@@ -56,6 +58,25 @@ export default function CreateChallenge() {
             />
           </div>
           <div className={styles.formGroup}>
+            <label htmlFor="difficulty" className={styles.formLabel}>Difficulty Level</label>
+            <select id="difficulty" name="difficulty" className={styles.formControl} required>
+              <option value="">Select Difficulty Level</option>
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
+            </select>
+          </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="challengeImage" className={styles.formLabel}>Challenge Image</label>
+            <input
+              type="file"
+              id="challengeImage"
+              name="challengeImage"
+              className={styles.formControl}
+              accept="image/*"
+            />
+          </div>
+          <div className={styles.formGroup}>
             <label htmlFor="mediaUrl" className={styles.formLabel}>Image/Video URL</label>
             <input
               type="text"
@@ -65,15 +86,7 @@ export default function CreateChallenge() {
               placeholder="Enter media URL (optional)"
             />
           </div>
-          <div className={styles.formGroup}>
-            <label htmlFor="difficulty" className={styles.formLabel}>Difficulty Level</label>
-            <select id="difficulty" name="difficulty" className={styles.formControl} required>
-              <option value="">Select Difficulty Level</option>
-              <option value="easy">Easy</option>
-              <option value="medium">Medium</option>
-              <option value="hard">Hard</option>
-            </select>
-          </div>
+
           <div className={styles.formGroup}>
             <button type="submit" className={styles.btnPrimary}>
               Create Challenge
