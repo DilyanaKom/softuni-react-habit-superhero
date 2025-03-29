@@ -6,7 +6,6 @@ import { Routes, Route } from 'react-router';
 import Navigation from './components/navigation/Navigation';
 import Register from './components/user/Register';
 import Login from './components/user/Login';
-import Hero from './components/Hero';
 import CreateChallengeForm from './components/challenges/CreateChallengeForm';
 import Catalog from './components/challenges/Catalog';
 
@@ -19,6 +18,7 @@ import ChallengeDetails from './components/challenges/ChallengeDetails';
 import EditChallenge from './components/challenges/EditChallenge';
 import DeleteChallenge from './components/challenges/DeleteChallenge';
 import GuardedRoute from './components/guards/GuardedRoute';
+import Home from './components/home/Home';
 
 
 
@@ -39,7 +39,7 @@ function App() {
         <NavigationProvider>
           <Navigation />
           <Routes>
-            <Route index element={<Hero />} />
+            <Route index element={<Home />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/challenges" element={<Catalog />} />
