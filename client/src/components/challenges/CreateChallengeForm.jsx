@@ -2,11 +2,14 @@ import styles from '../Forms.module.css'
 import { useChallenges } from '../../api/challengeApi';
 import { useNavigate } from 'react-router';
 import useImageUpload from '../../hooks/useImageUpload';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import ErrorNotification from '../errors/ErrorNotification';
 
 export default function CreateChallenge() {
-  const { addChallenge } = useChallenges(null);
+  const { addChallenge, error, clearError } = useChallenges(null);
   const { uploadImage, imageUrl, isLoading } = useImageUpload();
+  const [persistedData, setPersistedData] = useState(null);
+  const [pending, setPending] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,14 +30,15 @@ export default function CreateChallenge() {
   }
 
   const submitAction = async (formData) => {
+    setPending(true);
     const challengeData = Object.fromEntries(formData);
-
 
     try {
       await addChallenge(challengeData);
       navigate('/challenges');
     } catch (error) {
-      console.log(error.message)
+      setPersistedData({...challengeData});
+      setPending(false);
     }
 
   }
@@ -53,6 +57,7 @@ export default function CreateChallenge() {
               className={styles.formControl}
               placeholder="Enter challenge title"
               disabled={isLoading}
+              defaultValue={persistedData?.title}
               required
             />
           </div>
@@ -64,6 +69,7 @@ export default function CreateChallenge() {
               name="duration"
               className={styles.formControl}
               placeholder="Enter challenge duration in days"
+              defaultValue={persistedData?.duration}
               required
             />
           </div>
@@ -74,12 +80,13 @@ export default function CreateChallenge() {
               name="description"
               className={styles.formControl}
               placeholder="Describe your challenge"
+              defaultValue={persistedData?.description}
               required
             />
           </div>
           <div className={styles.formGroup}>
             <label htmlFor="difficulty" className={styles.formLabel}>Difficulty Level</label>
-            <select id="difficulty" name="difficulty" className={styles.formControl} required>
+            <select id="difficulty" name="difficulty" className={styles.formControl} required defaultValue={persistedData?.difficulty}>
               <option value="">Select Difficulty Level</option>
               <option value="easy">Easy</option>
               <option value="medium">Medium</option>
@@ -112,18 +119,20 @@ export default function CreateChallenge() {
           </div>
 
           <div className={styles.formGroup}>
-            <label htmlFor="mediaUrl" className={styles.formLabel}>Image/Video URL</label>
+            <label htmlFor="mediaUrl" className={styles.formLabel}>Image URL</label>
             <input
               type="text"
               id="mediaLink"
               name="mediaLink"
               className={styles.formControl}
+              defaultValue={persistedData?.mediaLink}
               placeholder="Enter media URL (optional)"
             />
           </div>
 
+            <ErrorNotification error={error} onClear={clearError} />
           <div className={styles.formGroup}>
-            <button type="submit" className={styles.btnPrimary}>
+            <button type="submit" className={styles.btnPrimary} disabled={pending}>
               Create Challenge
             </button>
           </div>
