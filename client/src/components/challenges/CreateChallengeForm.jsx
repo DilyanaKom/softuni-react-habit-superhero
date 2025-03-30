@@ -1,11 +1,30 @@
 import styles from '../Forms.module.css'
 import { useChallenges } from '../../api/challengeApi';
 import { useNavigate } from 'react-router';
+import useImageUpload from '../../hooks/useImageUpload';
+import { useEffect } from 'react';
 
 export default function CreateChallenge() {
   const { addChallenge } = useChallenges(null);
+  const { uploadImage, imageUrl, isLoading } = useImageUpload();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if (imageUrl) {
+      document.querySelector("#mediaLink").value = imageUrl;
+    }
+  }, [imageUrl])
+
+  const uploadHandler = async (e) => {
+
+    const file = e.target.files[0];
+    if (!file) {
+      return;
+    }
+
+    await uploadImage(file);
+
+  }
 
   const submitAction = async (formData) => {
     const challengeData = Object.fromEntries(formData);
@@ -33,6 +52,7 @@ export default function CreateChallenge() {
               name="title"
               className={styles.formControl}
               placeholder="Enter challenge title"
+              disabled={isLoading}
               required
             />
           </div>
@@ -66,6 +86,7 @@ export default function CreateChallenge() {
               <option value="hard">Hard</option>
             </select>
           </div>
+
           <div className={styles.formGroup}>
             <label htmlFor="challengeImage" className={styles.formLabel}>Challenge Image</label>
             <input
@@ -74,8 +95,22 @@ export default function CreateChallenge() {
               name="challengeImage"
               className={styles.formControl}
               accept="image/*"
+              onChange={uploadHandler}
             />
+            {isLoading && <p className={styles.uploadStatus}>Uploading image...</p>}
+            {imageUrl && !isLoading && (
+              <div className={styles.uploadSuccess}>
+                <p>Image uploaded successfully!</p>
+                <img
+                  src={imageUrl}
+                  alt="Preview"
+                  className={styles.imagePreview}
+                  style={{ maxWidth: '100%', maxHeight: '200px', marginTop: '10px' }}
+                />
+              </div>
+            )}
           </div>
+
           <div className={styles.formGroup}>
             <label htmlFor="mediaUrl" className={styles.formLabel}>Image/Video URL</label>
             <input
