@@ -24,7 +24,7 @@ return (
     {challenges.map(challenge => { return <CatalogItem key= {challenge._id} challenge={challenge}/>})}
     
   </div>
-  <div className="row tm-mb-90">
+  {/* <div className="row tm-mb-90">
     <div className="col-12 d-flex justify-content-between align-items-center tm-paging-col">
       <a href="javascript:void(0);" className="btn btn-primary tm-btn-prev mb-2 disabled">Previous</a>
       <div className="tm-paging d-flex">
@@ -35,7 +35,7 @@ return (
       </div>
       <a href="javascript:void(0);" className="btn btn-primary tm-btn-next">Next Page</a>
     </div>
-  </div>
+  </div> */}
 </div>}
 
     </>
