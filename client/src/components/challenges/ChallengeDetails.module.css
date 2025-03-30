@@ -32,7 +32,6 @@
   font-size: 18px;
   font-weight: bold;
   color: #ccc;
-  border-radius: 8px;
   overflow:hidden;
 }
 
@@ -93,5 +92,9 @@
   border-radius: 4px;
   background-color: #FFB347;
   color: white;
+}
+
+img{
+  overflow:hidden;
 }
 
