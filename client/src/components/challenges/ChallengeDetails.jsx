@@ -13,7 +13,7 @@ export default function ChallengeDetails() {
     const { challengeId } = useParams();
     const { _id: userId } = useContext(UserContext);
     const { currentChallenge } = useChallenges(challengeId);
-    const { handleJoinChallenge, handleCompleteChallenge} = useChallengeParticipiaction(challengeId);
+    const { handleJoinChallenge, handleCompleteChallenge } = useChallengeParticipiaction(challengeId);
     const [hasJoined, setHasJoined] = useState(false);
     const [hasCompleted, setHasCompleted] = useState(false);
 
@@ -27,12 +27,12 @@ export default function ChallengeDetails() {
     }, [userId, currentChallenge])
 
     const joinChallengeClickHandler = async () => {
-        await handleJoinChallenge(challengeId,userId);
+        await handleJoinChallenge(challengeId, userId);
         setHasJoined(true);
     };
 
     const completeChallengeClickHandler = async () => {
-        await handleCompleteChallenge(challengeId,userId);
+        await handleCompleteChallenge(challengeId, userId);
         setHasCompleted(true);
         setHasJoined(false);
     }
@@ -41,7 +41,15 @@ export default function ChallengeDetails() {
         <div className={styles.detailsContainer}>
             <h1 className={styles.challengeTitle}>{currentChallenge?.title}</h1>
             <div className={styles.detailsContent}>
-                <div className={styles.mediaDisplay}>{currentChallenge?.mediaLink}</div>
+                <div className={styles.mediaDisplay}>  {currentChallenge?.mediaLink ? (
+                    <img
+                        src={currentChallenge.mediaLink}
+                        alt={currentChallenge.title || "Challenge image"}
+                        className={styles.challengeImage}
+                    />
+                ) : (
+                    <div className={styles.noImage}>No image available</div>
+                )}</div>
                 <div className={styles.infoSection}>
                     <p><strong>Author:</strong> {currentChallenge?.author.username}</p>
                     <p><strong>Created On:</strong> {convertDate(currentChallenge?._createdOn)}</p>
