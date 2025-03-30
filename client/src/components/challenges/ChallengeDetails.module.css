@@ -25,6 +25,7 @@
 
 .mediaDisplay {
   flex: 2;
+  padding-right: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,6 +33,7 @@
   font-weight: bold;
   color: #ccc;
   border-radius: 8px;
+  overflow:hidden;
 }
 
 .infoSection {
