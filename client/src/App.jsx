@@ -21,6 +21,7 @@ import { UserContext } from './components/user/UserContext';
 import { NavigationProvider } from './components/navigation/NavigationContext';
 
 import useLocalStorage from './hooks/useLocalStorage';
+import ErrorBoundary from './components/errors/ErrorBoundary';
 
 
 
@@ -38,6 +39,7 @@ function App() {
 
   return (
     <>
+    <ErrorBoundary>
       <UserContext.Provider value={{ ...authData, userLoginHandler }}>
         <NavigationProvider>
           <Navigation />
@@ -58,6 +60,7 @@ function App() {
           <Footer/>
         </NavigationProvider>
       </UserContext.Provider>
+      </ErrorBoundary>
     </>
   )
 }
