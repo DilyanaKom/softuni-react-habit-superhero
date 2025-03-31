@@ -1,9 +1,19 @@
+import { useEffect, useState } from "react";
 import { useChallenges } from "../../api/challengeApi"
 import ErrorNotification from "../errors/ErrorNotification";
+import Search from "../Search";
 import CatalogItem from "./CatalogItem";
 
 export default function Catalog() {
    const {challenges, error, clearError} = useChallenges();
+   const [searchValue, setSearchValue] = useState('');
+
+   const filteredChallenges = searchValue
+   ? challenges.filter(challenge => challenge.title.toLowerCase().includes(searchValue.toLowerCase()))
+   : challenges;
+
+   const isSearching = searchValue !== '';
+
 
 
 return (
@@ -12,16 +22,14 @@ return (
   :      <div className="container-fluid tm-container-content tm-mt-60">
   <div className="row mb-4">
     <h2 className="col-6 tm-text-primary">
-      All Challenges
+      {isSearching ? 'Search Results' : 'All challenges'}
     </h2>
-    {/* <div className="col-6 d-flex justify-content-end align-items-center">
-      <form action="" className="tm-text-primary">
-        Page <input type="text" defaultValue="1" size="1" className="tm-input-paging tm-text-primary" /> of 200
-      </form>
-    </div> */}
+    <div className="col-6 d-flex justify-content-end align-items-center">
+    <Search onSearch={setSearchValue}/>
+    </div>
   </div>
   <div className="row tm-mb-90 tm-gallery">
-    {challenges.map(challenge => { return <CatalogItem key= {challenge._id} challenge={challenge}/>})}
+    {filteredChallenges.map(challenge => { return <CatalogItem key= {challenge._id} challenge={challenge}/>})}
     
   </div>
   {/* <div className="row tm-mb-90">
