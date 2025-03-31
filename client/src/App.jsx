@@ -8,10 +8,6 @@ import Register from './components/user/Register';
 import Login from './components/user/Login';
 import CreateChallengeForm from './components/challenges/CreateChallengeForm';
 import Catalog from './components/challenges/Catalog';
-
-import { UserContext } from './components/user/UserContext';
-import { NavigationProvider } from './components/navigation/NavigationContext';
-import useLocalStorage from './hooks/useLocalStorage';
 import Logout from './components/user/Logout';
 import Profile from './components/userProfile/Profile';
 import ChallengeDetails from './components/challenges/ChallengeDetails';
@@ -19,7 +15,13 @@ import EditChallenge from './components/challenges/EditChallenge';
 import DeleteChallenge from './components/challenges/DeleteChallenge';
 import GuardedRoute from './components/guards/GuardedRoute';
 import Home from './components/home/Home';
-import Footer from './components/Footer';
+import Footer from './components/Footer/Footer';
+
+import { UserContext } from './components/user/UserContext';
+import { NavigationProvider } from './components/navigation/NavigationContext';
+
+import useLocalStorage from './hooks/useLocalStorage';
+
 
 
 
