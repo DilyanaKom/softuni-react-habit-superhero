@@ -1,10 +1,31 @@
-export default function Search(){
-    return (
-        <form className="d-flex tm-search-form">
-        <input className="form-control tm-search-input" type="search" placeholder="Search" aria-label="Search" />
-        <button className="btn btn-outline-success tm-search-btn" type="submit">
-          <i className="fas fa-search"></i>
-        </button>
-      </form>
-    )
+
+import styles from './Forms.module.css'
+
+
+export default function Search({ onSearch }) {
+
+  const submitAction = (formData) => {
+    const searchValues = Object.fromEntries(formData);
+    onSearch(searchValues.searchTitle)
+
+  }
+
+  return (
+    <form className={styles.searchForm} action={submitAction}>
+      <input
+        className={`form-control ${styles.searchInput}`}
+        type="search"
+        placeholder="Search Title"
+        aria-label="Search"
+        name='searchTitle'
+      />
+      <button
+        className={`btn btn-outline-success ${styles.searchBtn}`}
+        type="submit"
+      >
+        <i className="fas fa-search"></i>
+      </button>
+    </form>
+    
+  )
 }
