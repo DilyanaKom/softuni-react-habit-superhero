@@ -73,6 +73,8 @@ export default function EditChallenge() {
               placeholder="Duration (days)"
               defaultValue={currentChallenge?.duration}
               required
+              min="1"
+              max="365"
             />
           </div>
           <div className={styles.formGroup}>
@@ -129,7 +131,7 @@ export default function EditChallenge() {
               defaultValue={currentChallenge?.mediaLink}
             />
           </div>
-            <ErrorNotification error={error} onClear={clearError} />
+          <ErrorNotification error={error} onClear={clearError} />
           <div className={styles.formGroup}>
             <button type="submit" className={styles.btnPrimary} disabled={pending}>
               Edit Challenge

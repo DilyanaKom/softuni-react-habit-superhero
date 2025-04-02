@@ -70,6 +70,8 @@ export default function CreateChallenge() {
               className={styles.formControl}
               placeholder="Enter challenge duration in days"
               defaultValue={persistedData?.duration}
+              min="1"
+              max="365"
               required
             />
           </div>
