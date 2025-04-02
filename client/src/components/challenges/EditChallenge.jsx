@@ -1,14 +1,16 @@
 import { useEffect } from 'react';
-
 import { useNavigate, useParams } from 'react-router';
+
 import styles from '../Forms.module.css'
+
 import { useChallenges } from '../../api/challengeApi';
 import useImageUpload from '../../hooks/useImageUpload';
+import ErrorNotification from '../errors/ErrorNotification';
 
 export default function EditChallenge() {
   const navigate = useNavigate();
   const { challengeId } = useParams();
-  const { currentChallenge, editChallenge } = useChallenges(challengeId);
+  const { currentChallenge, editChallenge, error, clearError } = useChallenges(challengeId);
   const { uploadImage, imageUrl, isLoading } = useImageUpload();
 
   useEffect(() => {
@@ -127,7 +129,7 @@ export default function EditChallenge() {
               defaultValue={currentChallenge?.mediaLink}
             />
           </div>
-
+            <ErrorNotification error={error} onClear={clearError} />
           <div className={styles.formGroup}>
             <button type="submit" className={styles.btnPrimary}>
               Edit Challenge
