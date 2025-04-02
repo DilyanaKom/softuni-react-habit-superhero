@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 
 import styles from '../Forms.module.css'
@@ -12,6 +12,7 @@ export default function EditChallenge() {
   const { challengeId } = useParams();
   const { currentChallenge, editChallenge, error, clearError } = useChallenges(challengeId);
   const { uploadImage, imageUrl, isLoading } = useImageUpload();
+  const [pending, setPending] = useState(false);
 
   useEffect(() => {
     if (imageUrl) {
@@ -31,16 +32,15 @@ export default function EditChallenge() {
   }
 
   const submitAction = async (formData) => {
+    setPending(true);
+    const updatedChallengeData = Object.fromEntries(formData);
     try {
-      const updatedChallengeData = Object.fromEntries(formData);
       await editChallenge(challengeId, updatedChallengeData);
 
       navigate(`/challenges/${challengeId}/details`);
     } catch (error) {
-      console.log(error.message)
-
+      setPending(false)
     }
-
 
   }
 
@@ -119,7 +119,7 @@ export default function EditChallenge() {
             )}
           </div>
           <div className={styles.formGroup}>
-            <label htmlFor="mediaUrl">Image/Video URL</label>
+            <label htmlFor="mediaUrl">Image URL</label>
             <input
               type="text"
               id="mediaLink"
@@ -131,7 +131,7 @@ export default function EditChallenge() {
           </div>
             <ErrorNotification error={error} onClear={clearError} />
           <div className={styles.formGroup}>
-            <button type="submit" className={styles.btnPrimary}>
+            <button type="submit" className={styles.btnPrimary} disabled={pending}>
               Edit Challenge
             </button>
           </div>
