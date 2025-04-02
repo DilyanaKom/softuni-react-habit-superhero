@@ -1,17 +1,24 @@
 import { Component } from 'react';
 
 class ErrorBoundary extends Component {
-    state = {
-        hasError: false,
-        errorMessage: "",
-    };
 
-    componentDidCatch(error){
-        this.setState({
-            hasError: true,
-            errorMessage: error.message,
+    constructor(props){
+        super(props);
+        this.state = {
+            hasError: false
+        }
+    }
 
-        });
+    static getDerivedStateFromError(error){
+        return {
+            hasError: true
+        }
+}  
+
+componentDidCatch(error){
+    this.setState({
+        hasError: true
+    })
         console.log(error);
     }
 
@@ -19,9 +26,7 @@ class ErrorBoundary extends Component {
         if(this.state.hasError){
             return (
                 <div style={{ textAlign: "center", padding: "50px" }}>
-                <h1>Oops! Something went wrong.</h1>
-                <p>We’re working to fix this. Please try refreshing the page.</p>
-                <button onClick={() => window.location.reload()}>Reload Page</button>
+                <h1>Oops! Something went wrong. Please try refreshing the page.</h1>
               </div>
             )
         }
