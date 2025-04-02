@@ -85,11 +85,9 @@ npm run dev
 - **Technology:**
   - SoftUni practice server
 
-
-
-### Deployment & Hosting
-- **Technology:**
-  - TBC
+## Image Hosting
+**Technology:**
+- imgbb (for storing images)
 
 ### Development & Tooling
 - **Technology:**
