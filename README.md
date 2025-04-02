@@ -15,7 +15,6 @@ Or download ZIP from the repository and extract.
 ### Server
 ```bash
 cd server
-npm install
 node server.js
 ```
 Server runs on http://localhost:3030
