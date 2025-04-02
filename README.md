@@ -1,6 +1,6 @@
 # HabitSuperhero
 
-HabitSuperhero is a platform where users can create, join, and complete healthy lifestyle challenges. The app supports both official challenges (pre-created) and community challenges (user-generated), with features such as simple progress tracking and comments.
+HabitSuperhero is a platform where users can create, join, and complete healthy lifestyle challenges. The app supports both official challenges (pre-created) and community challenges (user-generated).
 
 ---
 # Installation
@@ -38,20 +38,15 @@ npm run dev
 - Pre-created official challenges visible to all users
 - User-generated community challenges with full CRUD functionality
 - Users can join and mark challenges as completed
-- Challenges can only be deleted and edited if no users have joined them
 
 **Simple Progress Tracking**
 - Users can track challenges by marking them as "joined" or "completed"
 - Progress status is displayed on both the challenge details and user's personal page
 
-**Challenge Comments**
-- Users can comment on challenges to provide feedback or encouragement
-- Comment creators can modify or delete their own comments
-
 **User Authentication & Access Control**
 - User sign-up and login via SoftUni practice server
 - Different access levels for guests vs. logged-in users
-- Users can only modify their own challenges and comments
+- Users can only modify their own challenges
 
 ---
 
@@ -61,22 +56,19 @@ npm run dev
 - **Access:**
   - Can view challenges (both official and community)
   - Can view challenge details
-  - Can read comments on challenges
+  - Can search challenges
 - **Actions:**
   - Cannot join challenges
   - Cannot create or modify challenges
-  - Cannot add comments
 
 **Logged-in Users:**
 - **Access:**
   - Can join challenges and mark them as completed
   - Can view their joined and created challenges
-  - Can comment on any challenge
 - **Actions:**
   - Can create community challenges
-  - Can update only their own challenges (only if no one has joined)
-  - Can delete only their own challenges (only if no one has joined)
-  - Can update and delete only their own comments
+  - Can update only their own challenges
+  - Can delete only their own challenges
 
 ---
 
@@ -108,7 +100,7 @@ npm run dev
 ## Project Structure
 
 ### Public Part:
-- Home page with brief description
+- Home page with latest challenges and hero carousel
 - Challenges catalog (view all challenges)
 - Challenge details (view single challenge)
 - Login/Register pages
@@ -122,32 +114,10 @@ npm run dev
 ### Pages Structure:
 1. Home
 2. Challenges (catalog)
-3. Challenge Details (with comments section)
+3. Challenge Details
 4. Profile
 5. Create/Edit Challenge
 6. Login/Register
 7. Logout
 
 ---
-
-## Data Integrity Rules
-
-**Challenge Modification Rules:**
-- Challenges with no participants: Full CRUD operations allowed
-- Challenges with participants:
-  - Editing is prevented
-  - Deletion is prevented
-  - Clear feedback is provided to creators about these restrictions
-
-**Comment Management:**
-- Full CRUD operations for users on their own comments
-- Comments remain even if a user leaves a challenge
-
----
-
-## Future Improvements
-- Badges for completed challenges
-- Challenge categories and filtering
-- Social sharing functionality
-- Personal statistics dashboard
-- Moderation for community challenges
