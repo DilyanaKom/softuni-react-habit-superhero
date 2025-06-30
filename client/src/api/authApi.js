@@ -1,7 +1,7 @@
 import { useErrorHandler } from "../hooks/errorHandler";
 import { post, get } from "../utils/request";
 
-const url = 'http://localhost:3030/users';
+const url = 'https://habit-superhero.onrender.com/users';
 
 export const useLogin = () => {
     const { error, setError, clearError } = useErrorHandler();

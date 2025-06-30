@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { get, patch, post, remove } from "../utils/request";
 import { useErrorHandler } from "../hooks/errorHandler";
 
-const url = 'http://localhost:3030/data/challenges';
+const url = 'https://habit-superhero.onrender.com/data/challenges';
 
 export const useChallenges = (challengeId = null) => {
     const [challenges, setChallenges] = useState([]);

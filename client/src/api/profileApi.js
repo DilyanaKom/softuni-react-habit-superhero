@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { get } from "../utils/request";
 
-const url = 'http://localhost:3030/data/challenges';
+const url = 'https://habit-superhero.onrender.com/data/challenges';
 
 export const useProfileData = (userId = null) => {
     const [createdChallenges, setCreatedChallenges] = useState([]);
