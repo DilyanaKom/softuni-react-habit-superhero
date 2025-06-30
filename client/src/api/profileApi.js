@@ -17,6 +17,7 @@ export const useProfileData = (userId = null) => {
             .then(result => {
                 setCreatedChallenges(result)
             });
+            
         get(url)
             .then(result => {
                 const filteredActive = result.filter(

@@ -15,7 +15,7 @@ import EditChallenge from './components/challenges/EditChallenge';
 import DeleteChallenge from './components/challenges/DeleteChallenge';
 import GuardedRoute from './components/guards/GuardedRoute';
 import Home from './components/home/Home';
-import Footer from './components/Footer/Footer';
+import Footer from './components/footer/Footer';
 
 import { UserContext } from './components/user/UserContext';
 import { NavigationProvider } from './components/navigation/NavigationContext';
